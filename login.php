@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';
-require_once 'auth.php';
+require_once 'php/db.php';
+require_once 'php/auth.php';
 
 if (isLoggedIn()) {
     header('Location: index.php');
