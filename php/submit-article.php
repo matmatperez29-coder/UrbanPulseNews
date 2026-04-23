@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once 'php/php/php/php/auth.php';
+require_once 'php/php/php/php/auth.php';
 
 // Must be logged in
 if (!isLoggedIn()) {

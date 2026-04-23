@@ -3,8 +3,8 @@ ini_set('display_errors', 0);
 error_reporting(E_ALL);
 header('Content-Type: application/json');
 
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once 'php/php/php/php/auth.php';
+require_once 'php/php/php/php/auth.php';
 
 function fail_json(string $message, int $code = 400): void {
     http_response_code($code);

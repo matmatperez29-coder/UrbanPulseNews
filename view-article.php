@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';
-require_once 'auth.php';
+require_once 'php/php/php/auth.php';
+require_once 'php/php/php/auth.php';
 
 $db  = getDB();
 $id  = (int)($_GET['id'] ?? 0);
@@ -20,7 +20,7 @@ $article = $stmt->fetch();
 
 if (!$article) {
     http_response_code(404);
-    require_once 'db.php'; require_once 'auth.php';
+    require_once 'php/php/php/auth.php'; require_once 'php/php/php/auth.php';
     ?><!DOCTYPE html><html lang="en"><head><title>Not Found — UrbanPulse</title>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="navfooter.css"><link rel="stylesheet" href="home.css">

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/php/db.php';   // Added this to ensure DB connects!
-require_once __DIR__ . '/php/auth.php'; 
+require_once __DIR__ . '/php/php/php/php/auth.php';   // Added this to ensure DB connects!
+require_once __DIR__ . '/php/php/php/php/auth.php'; 
 $currentUser = getCurrentUser(); // Removed the $pdo from inside the parentheses
 ?>
 <!DOCTYPE html>

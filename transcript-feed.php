@@ -1,7 +1,7 @@
 <?php
 // transcript-feed.php — Returns a single transcript by key from DB
 declare(strict_types=1);
-require_once 'db.php';
+require_once 'php/php/php/auth.php';
 
 header('Content-Type: application/json; charset=utf-8');
 

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/php/db.php';
-require_once __DIR__ . '/php/auth.php';
+require_once __DIR__ . '/php/php/php/php/auth.php';
+require_once __DIR__ . '/php/php/php/php/auth.php';
 $currentUser = getCurrentUser();
 ?>
 <?php $pageId = 'entertainment'; ?>
