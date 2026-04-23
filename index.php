@@ -1,8 +1,8 @@
 <?php
 $pageId = 'home';
 session_start();
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once __DIR__ . '/php/db.php';
+require_once __DIR__ . '/php/auth.php';
 $currentUser = getCurrentUser();
 ?>
 <!doctype html>
@@ -60,7 +60,7 @@ $currentUser = getCurrentUser();
   <body data-page="<?php echo htmlspecialchars($pageId, ENT_QUOTES, 'UTF-8'); ?>">
 
     <!-- NAVIGATION BAR -->
-    <?php require_once 'nav.php'; ?>
+    <?php require_once __DIR__ . '/nav.php'; ?>
 
 
 
