@@ -1,0 +1,204 @@
+<?php
+require_once 'php/db.php';
+require_once 'php/auth.php';
+$currentUser = getCurrentUser();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SpaceX Starship 5 Completes First Orbital Fuel Transfer — UrbanPulse</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="SpaceX Starship 5 Completes First Orbital Fuel Transfer">
+  <meta property="og:description" content="Starship 5 completed a controlled orbital propellant transfer, marking a major milestone for heavier Moon missions, repeated deep-space cargo runs, and future Mars architecture.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=900&auto=format&fit=crop">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/navfooter.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/burgermenu.css">
+  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/pulse-features.css">
+  <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
+</head>
+<body>
+
+  <?php require_once 'nav.php'; ?>
+
+  <main class="article-page">
+    <div class="article-container">
+
+      <div class="hero-news">
+        <article>
+          <p class="hero-subheadlines" style="color:#0066cc">TECHNOLOGY</p>
+          <h1 class="hero-title">SpaceX Starship 5 Completes First Orbital Fuel Transfer</h1>
+          <div class="hero-meta">
+            <strong>David Sutherland</strong>
+            <span>UrbanPulse.com</span>
+            <span>February 23, 2026 · 12:45 PM CST</span>
+          </div>
+
+          <div class="share-bar" style="margin-bottom:1.5rem">
+            <span class="share-label">Share:</span>
+            <a class="share-btn fb" href="#" title="Share on Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook
+            </a>
+            <a class="share-btn tw" href="#" title="Share on Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg> Tweet
+            </a>
+            <button class="share-btn copy">🔗 Copy Link</button>
+            <span class="share-toast">Link copied!</span>
+          </div>
+
+          <div class="hero-image">
+            <img src="images/technology/spacex-orbital-fuel-transfer.jpg" alt="SpaceX Starship 5 Completes First Orbital Fuel Transfer" loading="lazy">
+          </div>
+          <p class="hero-summary">Starship 5 completed a controlled orbital propellant transfer, marking a major milestone for heavier Moon missions, repeated deep-space cargo runs, and future Mars architecture.</p>
+          <div class="hero-description">SpaceX confirmed that Starship 5 successfully transferred propellant while in orbit, proving one of the most important ideas behind the company&#x27;s larger exploration strategy. The demonstration matters because a fully fueled deep-space vehicle is difficult to launch in one piece from Earth, but much more realistic if it can top up after reaching orbit.<br><br>NASA watchers immediately pointed to the mission&#x27;s relevance for Artemis timelines. A reliable refueling chain would let lunar landers, cargo craft, and later Mars-bound systems leave Earth with more mass, more flexibility, and far less compromise in payload design.<br><br>The technical challenge is bigger than simply moving fuel from one tank to another. Engineers have to manage cryogenic propellants in microgravity, keep pressure stable, and limit boil-off while coordinating vehicle orientation and transfer rates. Hitting those marks in a live orbital demonstration makes the architecture much more credible.<br><br>It also changes what planners can imagine. Once refueling works at scale, space missions are no longer sized only by what one launch can lift. They can be sized by what multiple launches can assemble and sustain once they are already above the atmosphere.</div>
+
+          <div class="section-divider"></div>
+
+          <div class="reactions">
+            <div class="reactions-title">How do you feel about this article?</div>
+            <div class="reaction-buttons"></div>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="news-related">
+            <h5 class="news-related-title">RELATED STORIES</h5>
+            <a class="news-related-container" href="article-quantum.php">
+          <div class="news-related-image"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=100&auto=format&fit=crop" alt="Quantum Materials Researchers Confirm True 1D Electron Behavior"></div>
+          <span class="news-related-headline">Quantum Materials Researchers Confirm True 1D Electron Behavior</span>
+        </a><a class="news-related-container" href="article-meta-messenger.php">
+          <div class="news-related-image"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=100&auto=format&fit=crop" alt="Meta to Shut Down Messenger Desktop Website in April 2026"></div>
+          <span class="news-related-headline">Meta to Shut Down Messenger Desktop Website in April 2026</span>
+        </a>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="comments-section">
+            <h3 class="comments-heading">
+                Leave a Comment <span class="comment-count-badge" style="display:none">0</span>
+            </h3>
+
+            <?php if ($currentUser): ?>
+                <form id="commentForm" class="comment-form">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <textarea id="commentText" placeholder="Share your thoughts, <?= htmlspecialchars(explode(' ', $currentUser['name'])[0]) ?>..." required></textarea>
+                        <div id="charCount" class="comment-char-count">500 characters remaining</div>
+                    </div>
+                    <button type="submit" class="comment-submit" style="margin-top: 0.75rem;">Post Comment</button>
+                </form>
+            <?php else: ?>
+                <div class="comment-form" style="text-align: center; padding: 2.5rem 1rem; background: var(--color-surface); border: 1px dashed var(--color-border);">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" style="margin-bottom: 1rem;">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <h4 style="font-family: var(--font-display); color: var(--color-primary); margin-bottom: 0.5rem;">Join the Conversation</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 1.5rem;">You must be logged in to leave a comment or react to this article.</p>
+                    <a href="login.php" class="comment-submit" style="text-decoration: none; display: inline-block;">Log In or Register</a>
+                </div>
+            <?php endif; ?>
+
+            <div id="commentList" class="comment-list"></div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="sidebar">
+        <h3 class="sidebar-heading">Recommended</h3>
+        <div class="sidebar-stories">
+          <div class="sidebar-story">
+            <div class="sidebar-image"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=300&auto=format&fit=crop" alt="The Transition to Agentic AI and Autonomous Systems" loading="lazy"></div>
+            <div class="sidebar-story1">
+              <a href="article-ai-agentic-revolution.php"><h3 class="sidebar-headline">The Transition to Agentic AI and Autonomous Systems</h3></a>
+              <span class="sidebar-category">Technology</span>
+              <div class="sidebar-meta">
+                <button class="sidebar-share">FB SHARE</button>
+                <button class="sidebar-tweet">TWEET</button>
+              </div>
+            </div>
+          </div><div class="sidebar-story">
+            <div class="sidebar-image"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&auto=format&fit=crop" alt="Australia Launches Its First Secure Sovereign AI Factory" loading="lazy"></div>
+            <div class="sidebar-story1">
+              <a href="article-australia-ai.php"><h3 class="sidebar-headline">Australia Launches Its First Secure Sovereign AI Factory</h3></a>
+              <span class="sidebar-category">Technology</span>
+              <div class="sidebar-meta">
+                <button class="sidebar-share">FB SHARE</button>
+                <button class="sidebar-tweet">TWEET</button>
+              </div>
+            </div>
+          </div><div class="sidebar-story">
+            <div class="sidebar-image"><img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?w=300&auto=format&fit=crop" alt="Dodger Dynasty: L.A. Clinches Back-to-Back Titles in an 11-Inning Classic" loading="lazy"></div>
+            <div class="sidebar-story1">
+              <a href="article-dodgers.php"><h3 class="sidebar-headline">Dodger Dynasty: L.A. Clinches Back-to-Back Titles in an 11-Inning Classic</h3></a>
+              <span class="sidebar-category">Sports</span>
+              <div class="sidebar-meta">
+                <button class="sidebar-share">FB SHARE</button>
+                <button class="sidebar-tweet">TWEET</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roundup-section">
+          <h2>Independent News</h2>
+          <p>Independent journalism you can trust.</p>
+          <form class="roundup-form" onsubmit="return false">
+            <input type="email" placeholder="Your Email Address">
+            <button type="submit">SIGN-UP</button>
+          </form>
+          <div class="roundup-help">Please enter a valid email address.</div>
+          <div class="roundup-social">
+            <p>or sign in with</p>
+            <div class="social-row">
+              <span class="soc-box">f</span>
+              <span class="soc-box">G</span>
+              <span class="soc-box">A</span>
+              <span class="soc-box">M</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UrbanPulse</h3>
+          <p>Independent journalism you can trust. Delivering truth in every story since 2026.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Twitter">TW</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Github">GH</a>
+          </div>
+        </div>
+        <div class="footer-section"><h4>Categories</h4><ul><li><a href="technology.php">Technology</a></li><li><a href="sports.php">Sports</a></li><li><a href="entertainment.php">Entertainment</a></li><li><a href="worldnews.php">World News</a></li></ul></div>
+        <div class="footer-section"><h4>Company</h4><ul><li><a href="about.php">About Us</a></li><li><a href="contact.php">Contact</a></li><li><a href="#">Careers</a></li><li><a href="#">Advertise</a></li></ul></div>
+        <div class="footer-section"><h4>Pledge</h4><p>We, the UrbanPulse team, pledge to deliver news that keeps people informed, aware, and always updated.</p></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 UrbanPulse News. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/burger.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/pulse-features.js"></script>
+  <script>
+    const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
+    const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;
+    const UP_CURRENT_USER_ID = <?php echo $currentUser ? (int)$currentUser['id'] : 'null'; ?>;
+</script>
+  <script src="js/article-interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.UrbanPulseHome = window.UrbanPulseHome || {};

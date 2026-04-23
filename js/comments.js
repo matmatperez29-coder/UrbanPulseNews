@@ -1,0 +1,1 @@
+window.UrbanPulseComments = window.UrbanPulseComments || {};
