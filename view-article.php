@@ -24,7 +24,7 @@ if (!$article) {
     ?><!DOCTYPE html><html lang="en"><head><title>Not Found — UrbanPulse</title>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="navfooter.css"><link rel="stylesheet" href="home.css">
-    </head><body><?php require_once 'nav.php'; ?>
+    </head><body><?php require_once __DIR__ . '/nav.php'; ?>
     <div style="text-align:center;padding:5rem 1rem;">
       <div style="font-size:4rem;margin-bottom:1rem;">📭</div>
       <h1 style="font-family:serif;margin-bottom:.5rem;">Article Not Found</h1>
@@ -67,7 +67,7 @@ $ARTICLE_ID = 'submission-' . $article['id'];
 </head>
 <body>
 
-<?php require_once 'nav.php'; ?>
+<?php require_once __DIR__ . '/nav.php'; ?>
 
 <?php if ($article['status'] !== 'approved' && $isAdmin === 'admin'): ?>
 <div style="background:#d97706;color:white;text-align:center;padding:.65rem;font-size:.85rem;font-weight:700;">

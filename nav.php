@@ -10,7 +10,7 @@ if (!isset($currentUser)) {
 ?>
 <?php
 // nav.php — Shared header include
-// Usage: require_once 'nav.php'; at top of every page (after auth.php)
+// Usage: require_once __DIR__ . '/nav.php'; at top of every page (after auth.php)
 // Requires $currentUser to already be set
 ?>
   <!-- BREAKING NEWS -->

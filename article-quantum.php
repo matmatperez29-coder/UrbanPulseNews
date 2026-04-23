@@ -25,7 +25,7 @@ $currentUser = getCurrentUser();
 </head>
 <body>
 
-  <?php require_once 'nav.php'; ?>
+  <?php require_once __DIR__ . '/nav.php'; ?>
 
   <main class="article-page">
     <div class="article-container">

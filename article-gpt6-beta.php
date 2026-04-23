@@ -26,7 +26,7 @@ $currentUser = getCurrentUser(); // Returns user data if logged in, or null if n
 </head>
 <body>
 
-  <?php require_once 'nav.php'; ?>
+  <?php require_once __DIR__ . '/nav.php'; ?>
 
 
 

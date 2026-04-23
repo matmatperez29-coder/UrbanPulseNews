@@ -111,7 +111,7 @@ $currentUser = getCurrentUser();
 </head>
 <body data-page="<?php echo htmlspecialchars($pageId, ENT_QUOTES, 'UTF-8'); ?>">
 
-  <?php require_once 'nav.php'; ?>
+  <?php require_once __DIR__ . '/nav.php'; ?>
 
   <main>
     <div class="container">
