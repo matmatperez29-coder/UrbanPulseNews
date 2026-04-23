@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="navfooter.css">
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="css/navfooter.css">
+  <link rel="stylesheet" href="css/home.css">
   <style>
     .auth-page { min-height: 80vh; display: flex; align-items: center; justify-content: center; background: var(--color-surface, #f4f4f4); padding: 2rem; }
     .auth-box { background: white; border: 1px solid var(--color-border, #e0e0e0); padding: 2.5rem; width: 100%; max-width: 460px; }
