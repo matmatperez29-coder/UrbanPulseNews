@@ -1,6 +1,6 @@
 <?php
 // php/api-search.php — Returns approved submitted articles as JSON for search.js
-require_once 'php/php/php/php/auth.php';
+require_once 'php/php/php/php//php/auth.php';
 header('Content-Type: application/json');
 header('Cache-Control: max-age=30');
 

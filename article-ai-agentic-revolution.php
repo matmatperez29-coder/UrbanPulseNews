@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';   // Added this to ensure DB connects!
-require_once 'auth.php'; 
+require_once '/php/db.php';   // Added this to ensure DB connects!
+require_once '/php/auth.php'; 
 $currentUser = getCurrentUser(); // Removed the $pdo from inside the parentheses
 ?>
 <!DOCTYPE html>

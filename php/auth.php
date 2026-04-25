@@ -1,5 +1,5 @@
 <?php
-// php/php/php/php/auth.php — Session manager
+// php/php/php/php//php/auth.php — Session manager
 // Include this in any file that needs to check login status
 
 if (session_status() === PHP_SESSION_NONE) {
