@@ -594,3 +594,135 @@ a.card-link:hover .hero-title {
   color: var(--color-secondary, #c8102e);
   transition: color 0.2s;
 }
+
+/* Home page read-more visibility fix */
+.hero-story .toggle-btn,
+.story-card .toggle-btn,
+.category-card .toggle-btn,
+.compact-story .toggle-btn,
+.more-card .toggle-btn,
+.hero-story .read-more-btn,
+.story-card .read-more-btn,
+.category-card .read-more-btn,
+.compact-story .read-more-btn,
+.more-card .read-more-btn,
+a.card-link .toggle-btn,
+a.card-link .read-more-btn {
+  color: var(--color-secondary) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hero-story .toggle-btn:hover,
+.story-card .toggle-btn:hover,
+.category-card .toggle-btn:hover,
+.compact-story .toggle-btn:hover,
+.more-card .toggle-btn:hover,
+.hero-story .read-more-btn:hover,
+.story-card .read-more-btn:hover,
+.category-card .read-more-btn:hover,
+.compact-story .read-more-btn:hover,
+.more-card .read-more-btn:hover,
+a.card-link .toggle-btn:hover,
+a.card-link .read-more-btn:hover {
+  color: #a30c26 !important;
+}
+
+.hero-story .story-detail-panel,
+.story-card .story-detail-panel,
+.category-card .story-detail-panel,
+.compact-story .story-detail-panel,
+.more-card .story-detail-panel,
+a.card-link .story-detail-panel {
+  color: var(--color-text) !important;
+}
+
+.hero-story .story-detail-panel p,
+.story-card .story-detail-panel p,
+.category-card .story-detail-panel p,
+.compact-story .story-detail-panel p,
+.more-card .story-detail-panel p,
+a.card-link .story-detail-panel p {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .hero-story .story-detail-panel p,
+html[data-theme='dark'] .story-card .story-detail-panel p,
+html[data-theme='dark'] .category-card .story-detail-panel p,
+html[data-theme='dark'] .compact-story .story-detail-panel p,
+html[data-theme='dark'] .more-card .story-detail-panel p,
+html[data-theme='dark'] a.card-link .story-detail-panel p {
+  color: #eef2f7 !important;
+}
+
+
+/* Read-more expansion containment fix */
+.stories-grid,
+.category-grid,
+.more-grid,
+.story-grid,
+.news-grid,
+.compact-stories,
+.featured-side,
+.sport-grid,
+.hero-featured,
+.hero-sidebar,
+.sport-sidebar {
+  align-items: start !important;
+  grid-auto-rows: max-content !important;
+}
+
+.stories-grid > *,
+.category-grid > *,
+.more-grid > *,
+.story-grid > *,
+.news-grid > *,
+.compact-stories > *,
+.featured-side > *,
+.sport-grid > *,
+.hero-featured > *,
+.hero-sidebar > *,
+.sport-sidebar > * {
+  align-self: start !important;
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.story-card,
+.category-card,
+.more-card,
+.news-card,
+.compact-story,
+.hero-story,
+.hero-main,
+.sport-main,
+.sidebar-story,
+.featured-side-item,
+.review-card,
+.trending-item,
+.list-story {
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.read-more-content,
+.story-detail-panel,
+.more-text {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .read-more-content,
+html[data-theme='dark'] .story-detail-panel,
+html[data-theme='dark'] .story-detail-panel p,
+html[data-theme='dark'] .more-text {
+  color: #eef2f7 !important;
+}
+
+
+.story-summary .more-text {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .story-summary .more-text {
+  color: #eef2f7 !important;
+}

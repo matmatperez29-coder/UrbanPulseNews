@@ -1,8 +1,9 @@
 <?php
 $pageId = 'home';
 session_start();
-require_once __DIR__ . 'php/db.php';
-require_once __DIR__ . 'php/auth.php';
+// Added the forward slash before php/ to fix the Vercel path combining
+require_once __DIR__ . '/php/db.php';
+require_once __DIR__ . '/php/auth.php';
 $currentUser = getCurrentUser();
 ?>
 <!doctype html>

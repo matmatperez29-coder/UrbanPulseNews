@@ -139,9 +139,14 @@
     }
   }
 
+  function isAdminAccess() {
+    return !!document.querySelector('.nav-admin-btn');
+  }
+
   function updateMeterUi() {
     const state = getState();
-    const passActive = hasPass(state);
+    const adminAccess = isAdminAccess();
+    const passActive = adminAccess || hasPass(state);
     const used = passActive ? LIMIT : Math.min(state.count, LIMIT);
     const remaining = passActive ? '∞' : Math.max(LIMIT - state.count, 0);
     const remainingEl = document.getElementById('rippleMeterRemaining');
@@ -153,22 +158,38 @@
     const passStateEl = document.getElementById('ripplePassState');
     const campusPassBtn = document.getElementById('rippleCampusPass');
     const pips = document.querySelectorAll('#rippleMeterPips .editorial-meter-pip');
-    const passUntilLabel = passActive ? formatPassUntil(state.passUntil) : '';
+    const passUntilLabel = !adminAccess && passActive ? formatPassUntil(state.passUntil) : '';
 
     if (remainingEl) remainingEl.textContent = String(remaining);
     if (modalRemainingEl) modalRemainingEl.textContent = String(remaining);
-    if (modalUsedEl) modalUsedEl.textContent = passActive ? 'pass active' : `${used} / ${LIMIT}`;
-    if (modalModeEl) modalModeEl.textContent = passActive ? (passUntilLabel ? `Campus pass until ${passUntilLabel}` : 'Campus pass active') : 'Meter active';
-    if (passStateEl) passStateEl.textContent = passActive ? 'Campus pass active' : state.count >= LIMIT ? 'Meter reached' : 'Meter active';
+    if (modalUsedEl) modalUsedEl.textContent = adminAccess ? 'admin access' : passActive ? 'pass active' : `${used} / ${LIMIT}`;
+    if (modalModeEl) {
+      modalModeEl.textContent = adminAccess
+        ? 'Admin access active'
+        : passActive
+          ? (passUntilLabel ? `Campus pass until ${passUntilLabel}` : 'Campus pass active')
+          : 'Meter active';
+    }
+    if (passStateEl) {
+      passStateEl.textContent = adminAccess
+        ? 'Admin access active'
+        : passActive
+          ? 'Campus pass active'
+          : state.count >= LIMIT
+            ? 'Meter reached'
+            : 'Meter active';
+    }
 
     if (statusEl) {
-      statusEl.textContent = passActive
-        ? (passUntilLabel ? `24-hour campus pass active until ${passUntilLabel}` : 'Campus pass active for 24 hours')
-        : state.count >= LIMIT
-          ? 'Meter reached for premium story depth'
-          : state.count === 0
-            ? 'Fresh meter ready'
-            : `You used ${state.count} of ${LIMIT} premium reads`;
+      statusEl.textContent = adminAccess
+        ? 'Admin access active for all premium story depth'
+        : passActive
+          ? (passUntilLabel ? `24-hour campus pass active until ${passUntilLabel}` : 'Campus pass active for 24 hours')
+          : state.count >= LIMIT
+            ? 'Meter reached for premium story depth'
+            : state.count === 0
+              ? 'Fresh meter ready'
+              : `You used ${state.count} of ${LIMIT} premium reads`;
     }
     if (progressEl) {
       const progress = passActive ? 100 : Math.min((state.count / LIMIT) * 100, 100);
@@ -181,9 +202,11 @@
 
     if (campusPassBtn) {
       campusPassBtn.disabled = passActive;
-      campusPassBtn.innerHTML = passActive
-        ? '<span>Campus pass is active</span><small>Premium detail is unlocked in this browser</small>'
-        : '<span>Use 24-hour campus pass</span><small>Fast demo unlock in this browser</small>';
+      campusPassBtn.innerHTML = adminAccess
+        ? '<span>Admin access is active</span><small>Premium detail is fully unlocked for this account</small>'
+        : passActive
+          ? '<span>Campus pass is active</span><small>Premium detail is unlocked in this browser</small>'
+          : '<span>Use 24-hour campus pass</span><small>Fast demo unlock in this browser</small>';
     }
   }
 
@@ -274,6 +297,12 @@
         const panelId = `detail-${Math.random().toString(36).slice(2, 10)}`;
         panel.id = panelId;
         legacyButton.dataset.detailTarget = panelId;
+        const anchor = card.querySelector('.story-meta, .hero-meta, .sidebar-meta, .compact-meta, .news-card-meta, .review-meta, .trending-meta, .time-tag, .globe-meta, .featured-meta');
+        if (anchor) {
+          anchor.insertAdjacentElement('afterend', legacyButton);
+        } else {
+          panel.insertAdjacentElement('afterend', legacyButton);
+        }
       }
       legacyButton.type = 'button';
       legacyButton.setAttribute('aria-expanded', 'false');
@@ -312,7 +341,7 @@
     if (detailData.premium) button.dataset.meterLabel = detailData.meterLabel || 'premium';
     if (anchor && anchor.parentNode) {
       anchor.parentNode.insertBefore(panel, anchor);
-      anchor.parentNode.insertBefore(button, anchor);
+      anchor.insertAdjacentElement('afterend', button);
     } else {
       card.appendChild(panel);
       card.appendChild(button);
@@ -323,7 +352,7 @@
 
   function registerPremiumAccess(card, targetId) {
     const state = getState();
-    if (hasPass(state)) return true;
+    if (isAdminAccess() || hasPass(state)) return true;
     const premium = card?.dataset.premiumDetail === 'true';
     if (!premium) return true;
     if (state.seen[targetId]) return true;
@@ -339,14 +368,29 @@
   }
 
   function toggleTarget(button, target) {
+    const card = button.closest('.filter-item, .hero-story, .story-card, .category-card, .compact-story, .more-card, .hero-main, .list-story, .news-card, .review-card, .sidebar-story, .trending-item');
     const expanded = button.getAttribute('aria-expanded') === 'true';
     if (!expanded) {
-      const accessKey = target?.id || button.dataset.detailTarget || button.getAttribute('data-read-more') || normalize(button.closest('.filter-item')?.querySelector('h1,h2,h3,h4')?.textContent || 'story');
-      if (!registerPremiumAccess(button.closest('.filter-item'), accessKey)) return;
+      const accessKey = target?.id || button.dataset.detailTarget || button.getAttribute('data-read-more') || normalize(card?.querySelector('h1,h2,h3,h4')?.textContent || 'story');
+      if (!registerPremiumAccess(card, accessKey)) return;
+
+      const scope = card?.parentElement;
+      if (scope) {
+        scope.querySelectorAll('.read-more-btn[aria-expanded="true"], .toggle-btn[aria-expanded="true"]').forEach((otherButton) => {
+          if (otherButton === button) return;
+          const otherTargetId = otherButton.dataset.detailTarget || otherButton.getAttribute('data-read-more');
+          const otherTarget = otherTargetId ? document.getElementById(otherTargetId) : null;
+          if (otherTarget) otherTarget.hidden = true;
+          otherButton.setAttribute('aria-expanded', 'false');
+          otherButton.textContent = 'Read more';
+          otherButton.closest('.filter-item, .hero-story, .story-card, .category-card, .compact-story, .more-card, .hero-main, .list-story, .news-card, .review-card, .sidebar-story, .trending-item')?.classList.remove('is-read-expanded');
+        });
+      }
     }
     if (target) target.hidden = expanded;
     button.setAttribute('aria-expanded', String(!expanded));
     button.textContent = expanded ? 'Read more' : 'Read less';
+    card?.classList.toggle('is-read-expanded', !expanded);
   }
 
   function handleLegacyToggle(button) {

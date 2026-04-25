@@ -697,55 +697,105 @@ html[data-theme='dark'] .article-submit-cta p {
     padding-right: 0.78rem !important;
   }
 }
-/* target phones (Phone End) */
-@media (max-width: 480px) {
-  /* 1. Prevent Container Overflow */
-  .article-container {
-    display: block; /* Stack sidebar below content */
-    width: 100%;
-    padding: 0 10px;
-  }
 
-  /* 2. Headline Scaling */
-  .hero-title {
-    font-size: 1.5rem !important; /* Smaller, punchy titles for small screens */
-    line-height: 1.2;
-    word-wrap: break-word;
-  }
 
-  /* 3. Image Aspect Ratio */
-  .hero-image {
-    aspect-ratio: 1 / 1; /* Square images often look better on very small phones */
-    margin: 0 -10px 1rem -10px; /* Bleed image to the edges of the phone */
-    width: calc(100% + 20px);
-  }
+.comment-delete-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 17, 21, 0.56);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 9999;
+}
+.comment-delete-modal.is-open {
+  display: flex;
+}
+body.delete-modal-open {
+  overflow: hidden;
+}
+.comment-delete-dialog {
+  width: min(100%, 420px);
+  background: #ffffff;
+  border: 1px solid var(--color-border,#e0e0e0);
+  border-radius: 16px;
+  padding: 1.25rem 1.2rem 1.1rem;
+  box-shadow: 0 22px 55px rgba(0,0,0,.22);
+}
+.comment-delete-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(200,16,46,.08);
+  font-size: 1.2rem;
+  margin-bottom: .8rem;
+}
+.comment-delete-dialog h3 {
+  margin: 0 0 .35rem;
+  font-family: var(--font-display,'Playfair Display',serif);
+  font-size: 1.18rem;
+}
+.comment-delete-dialog p {
+  margin: 0;
+  color: var(--color-text-muted,#666);
+  line-height: 1.6;
+}
+.comment-delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: .75rem;
+  margin-top: 1.15rem;
+  flex-wrap: wrap;
+}
+.comment-delete-cancel,
+.comment-delete-confirm {
+  border: none;
+  border-radius: 999px;
+  padding: .7rem 1rem;
+  font-size: .86rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.comment-delete-cancel {
+  background: #f4f4f4;
+  color: #1a1a1a;
+}
+.comment-delete-confirm {
+  background: linear-gradient(90deg,var(--color-secondary,#c8102e),#a30c26);
+  color: #fff;
+}
+html[data-theme='dark'] .comment-delete-dialog {
+  background: #161b23;
+  border-color: #2a313c;
+}
+html[data-theme='dark'] .comment-delete-icon {
+  background: rgba(255,122,138,.12);
+}
+html[data-theme='dark'] .comment-delete-dialog h3 {
+  color: #f4f7fb;
+}
+html[data-theme='dark'] .comment-delete-dialog p {
+  color: #c9d1dc;
+}
+html[data-theme='dark'] .comment-delete-cancel {
+  background: #202733;
+  color: #e7ecf4;
+}
 
-  /* 4. Reaction Buttons - 2 per row */
-  .reaction-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  
-  .reaction-btn {
-    min-width: 0; /* Allows buttons to shrink */
-    padding: 10px 5px;
-  }
-
-  /* 5. Navigation & Sidebars */
-  .sidebar {
-    margin-top: 2rem;
-    position: static !important; /* Disable sticky on mobile */
-  }
-
-  /* 6. Interaction Elements */
-  .share-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .share-btn {
-    width: 100%;
-    justify-content: center;
-  }
+/* Read-more and expandable text justification */
+.read-more-content,
+.read-more-content p,
+.read-more-content li,
+.story-detail-panel,
+.story-detail-panel p,
+.story-detail-panel li,
+.more-text,
+.more-text p,
+.more-text li {
+  text-align: justify !important;
+  text-justify: inter-word;
 }

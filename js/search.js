@@ -91,7 +91,7 @@
   async function ensureArticlesLoaded(scope = pageScope) {
     if (dbLoaded) return dbArticles;
     if (dbPromise) return dbPromise;
-    const url = scope === 'all' ? 'php/api-search.php?scope=all' : `php/api-search.php?scope=${encodeURIComponent(scope)}`;
+    const url = scope === 'all' ? 'api-search.php?scope=all' : `api-search.php?scope=${encodeURIComponent(scope)}`;
     dbPromise = fetch(url, { cache: 'no-store' })
       .then((res) => res.ok ? res.json() : { success: false, articles: [] })
       .then((data) => {

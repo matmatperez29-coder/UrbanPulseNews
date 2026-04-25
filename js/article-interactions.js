@@ -7,6 +7,7 @@
 
   const ARTICLE_ID = (typeof UP_ARTICLE_ID !== 'undefined' && UP_ARTICLE_ID) ? UP_ARTICLE_ID : location.pathname.split('/').pop().replace('.php', '');
   const state = { reactions: {}, comments: [], myReaction: null, myLikes: [], isLoggedIn: false };
+  let deleteModalInstance = null;
 
   function initials(name) {
     if (!name) return '??';
@@ -35,6 +36,83 @@
       .replace(/'/g, '&#39;');
   }
 
+
+  function ensureDeleteModal() {
+    if (deleteModalInstance) return deleteModalInstance;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'comment-delete-modal';
+    overlay.innerHTML = `
+      <div class="comment-delete-dialog" role="dialog" aria-modal="true" aria-labelledby="commentDeleteTitle">
+        <div class="comment-delete-icon" aria-hidden="true">🗑</div>
+        <h3 id="commentDeleteTitle">Delete comment?</h3>
+        <p>This will permanently remove the comment from the article discussion.</p>
+        <div class="comment-delete-actions">
+          <button type="button" class="comment-delete-cancel">Cancel</button>
+          <button type="button" class="comment-delete-confirm">Delete</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const cancelBtn = overlay.querySelector('.comment-delete-cancel');
+    const confirmBtn = overlay.querySelector('.comment-delete-confirm');
+    let resolver = null;
+
+    function close(result) {
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('delete-modal-open');
+      document.removeEventListener('keydown', onKeydown);
+      if (resolver) {
+        resolver(result);
+        resolver = null;
+      }
+    }
+
+    function onKeydown(event) {
+      if (event.key === 'Escape') close(false);
+    }
+
+    overlay.addEventListener('click', event => {
+      if (event.target === overlay) close(false);
+    });
+    cancelBtn.addEventListener('click', () => close(false));
+    confirmBtn.addEventListener('click', () => close(true));
+
+    deleteModalInstance = {
+      open() {
+        overlay.classList.add('is-open');
+        document.body.classList.add('delete-modal-open');
+        document.addEventListener('keydown', onKeydown);
+        cancelBtn.focus();
+        return new Promise(resolve => {
+          resolver = resolve;
+        });
+      }
+    };
+
+    return deleteModalInstance;
+  }
+
+  function normalizeReadMoreLayout(root = document) {
+    const selectors = '.read-more-btn';
+    root.querySelectorAll(selectors).forEach(button => {
+      if (button.dataset.layoutFixed === 'true') return;
+      const card = button.closest('.filter-item, .news-card, .review-card, .list-story, .compact-story, .sidebar-story, .hero-article, .hero-main, .sport-main, .story-card, .category-card, .more-card, .trending-item, .globe-card, .featured-side-item');
+      if (!card) return;
+      const anchor = card.querySelector('.story-meta, .hero-meta, .sidebar-meta, .compact-meta, .news-card-meta, .review-meta, .trending-meta, .time-tag, .globe-meta, .featured-meta');
+      const panelId = button.dataset.detailTarget || button.getAttribute('data-read-more');
+      const panel = panelId ? document.getElementById(panelId) : null;
+      if (panel && panel.parentElement !== button.parentElement && anchor && anchor.parentNode) {
+        anchor.parentNode.insertBefore(panel, anchor.nextSibling);
+      }
+      if (anchor && button.parentElement !== anchor.parentElement.nextSibling) {
+        anchor.insertAdjacentElement('afterend', button);
+      }
+      button.dataset.layoutFixed = 'true';
+    });
+  }
+
   function ensureNotificationAssets() {
     if (!document.querySelector('link[href="user-notifications.css"]')) {
       const link = document.createElement('link');
@@ -42,7 +120,7 @@
       link.href = 'user-notifications.css';
       document.head.appendChild(link);
     }
-    if (!window.UPNotificationsLoaded && !document.querySelector('script[src="js/user-notifications.js"]')) {
+    if (!window.UPNotificationsLoaded && !document.querySelector('script[src="user-notifications.js"]')) {
       const script = document.createElement('script');
       script.src = 'user-notifications.js';
       document.body.appendChild(script);
@@ -51,7 +129,7 @@
 
   async function fetchInteractions() {
     try {
-      const res = await fetch(`php/api.php?action=get_data&article_id=${encodeURIComponent(ARTICLE_ID)}`);
+      const res = await fetch(`api.php?action=get_data&article_id=${encodeURIComponent(ARTICLE_ID)}`);
       const data = await res.json();
       if (!data || data.error) return;
       state.reactions = data.reactions || {};
@@ -97,7 +175,7 @@
 
         const key = btn.dataset.key;
         try {
-          const res = await fetch('php/api.php', {
+          const res = await fetch('api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'toggle_reaction', article_id: ARTICLE_ID, reaction: key })
@@ -213,7 +291,7 @@
         }
         const commentId = Number(btn.dataset.id);
         try {
-          const res = await fetch('php/api.php', {
+          const res = await fetch('api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'toggle_like', article_id: ARTICLE_ID, comment_id: commentId })
@@ -274,7 +352,7 @@
         }
 
         try {
-          const res = await fetch('php/api.php', {
+          const res = await fetch('api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'add_comment', article_id: ARTICLE_ID, body, parent_id: parentId })
@@ -301,9 +379,10 @@
     list.querySelectorAll('.comment-delete-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
         const commentId = Number(btn.dataset.id);
-        if (!confirm('Delete this comment permanently?')) return;
+        const confirmed = await ensureDeleteModal().open();
+        if (!confirmed) return;
         try {
-          const res = await fetch('php/api.php', {
+          const res = await fetch('api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'delete_comment', article_id: ARTICLE_ID, comment_id: commentId })
@@ -346,7 +425,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Posting...';
       try {
-        const res = await fetch('php/api.php', {
+        const res = await fetch('api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'add_comment', article_id: ARTICLE_ID, body: text })
@@ -422,7 +501,7 @@
         <h3>Want to submit an article?</h3>
         <p>Write your story and send it for admin approval. Click below to open the contributor submission page.</p>
       </div>
-      <a href="php/submit-article.php" class="article-submit-link">Click here</a>
+      <a href="submit-article.php" class="article-submit-link">Click here</a>
     `;
     commentsSection.parentNode.insertBefore(cta, commentsSection);
   }
@@ -430,6 +509,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     ensureNotificationAssets();
     injectSubmitCTA();
+    normalizeReadMoreLayout();
     fetchInteractions();
     initCommentsForm();
     initShare();

@@ -278,3 +278,160 @@ html[data-theme='dark'] .footer {
     transform: translateX(20px);
   }
 }
+
+html[data-theme='dark'] {
+  --color-background: #0f1115;
+  --color-surface: var(--theme-card-bg);
+  --color-primary: #f4f7fb;
+  --color-text: #c9d1dc;
+  --color-text-light: #8f98a7;
+  --color-text-muted: #8f98a7;
+  --color-border: #2a313c;
+}
+
+html[data-theme='dark'] body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.tools-bar {
+  grid-template-columns: repeat(2, minmax(170px, 220px)) !important;
+  justify-content: start;
+  gap: 0.75rem !important;
+  padding: 0.8rem 0.95rem !important;
+  border-radius: 14px !important;
+}
+
+.tools-field {
+  min-width: 0;
+}
+
+.tools-label {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+.tools-select,
+.tools-input {
+  min-height: 42px;
+  padding: 0.7rem 0.9rem !important;
+  border-radius: 10px !important;
+  font-size: 0.9rem !important;
+}
+
+.stories-grid,
+.category-grid,
+.more-grid,
+.news-grid,
+.globe-grid {
+  align-items: stretch;
+}
+
+.story-card,
+.category-card,
+.more-card,
+.news-card,
+.globe-card,
+.trending-bottom-item,
+.signal-card,
+.stat-card,
+.featured-side-item,
+.headline-card {
+  height: 100%;
+}
+
+.read-more-btn,
+.toggle-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-top: 0.7rem !important;
+  margin-left: 0 !important;
+}
+
+html[data-theme='dark'] .tools-select.filter-active,
+html[data-theme='dark'] .tools-input.filter-active,
+html[data-theme='dark'] .filter-inner select.filter-active {
+  background: #24161b !important;
+  color: #ff7a8a !important;
+  border-color: #8a273b !important;
+}
+
+html[data-theme='dark'] .featured-main,
+html[data-theme='dark'] .featured-main-image,
+html[data-theme='dark'] .featured-side-item,
+html[data-theme='dark'] .globe-card,
+html[data-theme='dark'] .globe-card-content,
+html[data-theme='dark'] .sidebar-box,
+html[data-theme='dark'] .world-map-widget,
+html[data-theme='dark'] .headline-card,
+html[data-theme='dark'] .trending-bottom-item,
+html[data-theme='dark'] .map-story-panel,
+html[data-theme='dark'] .featured-story,
+html[data-theme='dark'] .feature-card,
+html[data-theme='dark'] .page-layout > *,
+html[data-theme='dark'] .main-layout > * {
+  border-color: var(--color-border);
+}
+
+@media (max-width: 800px) {
+  .tools-bar {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+html[data-theme='dark'] .hero-title,
+html[data-theme='dark'] .story-title,
+html[data-theme='dark'] .section-heading,
+html[data-theme='dark'] .section-title,
+html[data-theme='dark'] .sport-title,
+html[data-theme='dark'] .news-card-title,
+html[data-theme='dark'] .review-title,
+html[data-theme='dark'] .sidebar-title,
+html[data-theme='dark'] .trending-title,
+html[data-theme='dark'] .compact-content h4,
+html[data-theme='dark'] .category-card h3,
+html[data-theme='dark'] .more-card h4,
+html[data-theme='dark'] .featured-side-title,
+html[data-theme='dark'] .briefing-title,
+html[data-theme='dark'] .headline-title,
+html[data-theme='dark'] .globe-card h4,
+html[data-theme='dark'] .story-author,
+html[data-theme='dark'] .hero-author,
+html[data-theme='dark'] .news-card-author {
+  color: var(--color-primary) !important;
+}
+
+html[data-theme='dark'] .story-summary,
+html[data-theme='dark'] .hero-excerpt,
+html[data-theme='dark'] .hero-copy,
+html[data-theme='dark'] .news-card-excerpt,
+html[data-theme='dark'] .review-copy,
+html[data-theme='dark'] .sidebar-copy,
+html[data-theme='dark'] .globe-meta,
+html[data-theme='dark'] .headline-meta,
+html[data-theme='dark'] .time-stamp,
+html[data-theme='dark'] .time-tag,
+html[data-theme='dark'] .compact-meta,
+html[data-theme='dark'] .news-card-meta,
+html[data-theme='dark'] .review-meta,
+html[data-theme='dark'] .trending-meta,
+html[data-theme='dark'] .featured-meta {
+  color: var(--color-text-light) !important;
+}
+
+/* Global read-more text justification */
+.read-more-content,
+.read-more-content p,
+.read-more-content li,
+.story-detail-panel,
+.story-detail-panel p,
+.story-detail-panel li,
+.more-text,
+.more-text p,
+.more-text li {
+  text-align: justify !important;
+  text-justify: inter-word;
+}

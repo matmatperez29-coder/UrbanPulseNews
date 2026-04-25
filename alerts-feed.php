@@ -1,7 +1,7 @@
 <?php
 // alerts-feed.php — Returns active alerts for the current page from DB
 declare(strict_types=1);
-require_once __DIR__ . '/php/php/php/php/auth.php';
+require_once 'db.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');

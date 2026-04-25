@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/php/php/php/php/auth.php';
-require_once __DIR__ . '/php/php/php/php/auth.php';
+require_once 'db.php';
+require_once 'auth.php';
 $currentUser = getCurrentUser();
 ?>
 <!DOCTYPE html>
@@ -16,18 +16,18 @@ $currentUser = getCurrentUser();
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/navfooter.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/burgermenu.css">
-  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="navfooter.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="burgermenu.css">
+  <link rel="stylesheet" href="article.css">
   <script>(function(){try{if(localStorage.getItem('up_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()</script>
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/pulse-features.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="pulse-features.css">
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
 </head>
 <body>
 
-  <?php require_once __DIR__ . '/nav.php'; ?>
+  <?php require_once 'nav.php'; ?>
 
   <main class="article-page">
     <div class="article-container">
@@ -200,13 +200,15 @@ $currentUser = getCurrentUser();
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/burger.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/search.js"></script>
-  <script src="js/pulse-features.js"></script>
+  <script src="burger.js"></script>
+  <script src="theme.js"></script>
+  <script src="search.js"></script>
+  <script src="pulse-features.js"></script>
 <script>
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
     const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;
+    const UP_CURRENT_USER_ID = <?php echo $currentUser ? (int)$currentUser['id'] : 'null'; ?>;
 </script>
+<script src="article-interactions.js"></script>
 </body>
 </html>

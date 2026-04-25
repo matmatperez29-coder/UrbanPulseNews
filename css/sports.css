@@ -424,3 +424,239 @@ main { flex: 1; padding: 2rem 0 4rem; }
     .newsletter-section { grid-template-columns: 1fr; }
     .list-story { grid-template-columns: 1fr; }
 }
+/* Sports page layout refinement: more breathing room without changing the overall design */
+.container {
+    max-width: 1320px;
+    padding-inline: clamp(1rem, 2.2vw, 1.85rem);
+}
+
+.hero-featured,
+.story-grid,
+.sport-grid,
+.quick-stats {
+    align-items: start;
+}
+
+.hero-main,
+.story-card,
+.sport-main,
+.sidebar-story,
+.compact-story,
+.list-story,
+.stat-card {
+    background: var(--theme-card-bg, var(--color-surface));
+    border: 1px solid var(--color-border);
+    border-radius: 22px;
+}
+
+.hero-main,
+.story-card,
+.sport-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1rem 1.1rem;
+    min-width: 0;
+}
+
+.sidebar-story,
+.compact-story {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem 1.05rem;
+    min-width: 0;
+}
+
+.list-story {
+    align-items: start;
+    padding: 1rem;
+    gap: 1.25rem;
+}
+
+.hero-main > .article-media-link,
+.story-card > .article-media-link,
+.sport-main > .article-media-link {
+    display: block;
+    margin: -1rem -1rem 1rem;
+}
+
+.hero-main > .article-media-link .media-slot,
+.story-card > .article-media-link .media-slot,
+.sport-main > .article-media-link .media-slot {
+    border-radius: 22px 22px 16px 16px;
+}
+
+.hero-sidebar,
+.sport-sidebar {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.hero-sidebar {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.sidebar-story,
+.sidebar-story:last-child,
+.compact-story,
+.compact-story:last-child {
+    border: 1px solid var(--color-border);
+    padding-bottom: 1.05rem;
+}
+
+.story-grid {
+    gap: 1.75rem;
+}
+
+.story-card {
+    height: 100%;
+}
+
+.story-title {
+    font-size: clamp(1.45rem, 2vw, 1.95rem);
+    line-height: 1.16;
+}
+
+.story-excerpt,
+.sport-copy,
+.list-copy,
+.hero-excerpt,
+.hero-copy {
+    max-width: 70ch;
+}
+
+.sport-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(340px, 0.95fr);
+    gap: 1.85rem;
+}
+
+.sport-main-title {
+    font-size: clamp(2.1rem, 3vw, 3rem);
+    line-height: 1.08;
+}
+
+.compact-title {
+    font-size: clamp(1.08rem, 1.35vw, 1.28rem);
+    line-height: 1.18;
+    margin-bottom: 0.35rem;
+}
+
+.compact-meta,
+.sidebar-meta,
+.story-meta,
+.hero-meta {
+    row-gap: 0.35rem;
+}
+
+.stat-card {
+    padding: 1rem 1rem 1.1rem;
+}
+
+.section-divider {
+    margin: 2.75rem 0;
+}
+
+@media (max-width: 1360px) {
+    .story-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1180px) {
+    .sport-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sport-sidebar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 920px) {
+    .story-grid,
+    .quick-stats,
+    .sport-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-main,
+    .story-card,
+    .sport-main,
+    .sidebar-story,
+    .compact-story,
+    .list-story {
+        border-radius: 20px;
+    }
+
+    .hero-main > .article-media-link .media-slot,
+    .story-card > .article-media-link .media-slot,
+    .sport-main > .article-media-link .media-slot {
+        border-radius: 20px 20px 16px 16px;
+    }
+}
+
+
+/* Read-more expansion containment fix */
+.stories-grid,
+.category-grid,
+.more-grid,
+.story-grid,
+.news-grid,
+.compact-stories,
+.featured-side,
+.sport-grid,
+.hero-featured,
+.hero-sidebar,
+.sport-sidebar {
+  align-items: start !important;
+  grid-auto-rows: max-content !important;
+}
+
+.stories-grid > *,
+.category-grid > *,
+.more-grid > *,
+.story-grid > *,
+.news-grid > *,
+.compact-stories > *,
+.featured-side > *,
+.sport-grid > *,
+.hero-featured > *,
+.hero-sidebar > *,
+.sport-sidebar > * {
+  align-self: start !important;
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.story-card,
+.category-card,
+.more-card,
+.news-card,
+.compact-story,
+.hero-story,
+.hero-main,
+.sport-main,
+.sidebar-story,
+.featured-side-item,
+.review-card,
+.trending-item,
+.list-story {
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.read-more-content,
+.story-detail-panel,
+.more-text {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .read-more-content,
+html[data-theme='dark'] .story-detail-panel,
+html[data-theme='dark'] .story-detail-panel p,
+html[data-theme='dark'] .more-text {
+  color: #eef2f7 !important;
+}

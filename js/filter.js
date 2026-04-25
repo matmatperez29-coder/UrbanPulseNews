@@ -16,11 +16,13 @@
   const filterResults = document.getElementById('filterResults');
   let toastTimer;
 
+
   const items = Array.from(document.querySelectorAll(ITEM_SELECTOR));
   if (!items.length) return;
 
   items.forEach((item) => {
-    const computed = window.getComputedStyle(item).display;
+    const wrapper = getFilterWrapper(item);
+    const computed = window.getComputedStyle(wrapper).display;
     item.dataset.originalDisplay = computed && computed !== 'none' ? computed : '';
   });
 
@@ -45,23 +47,30 @@
   }
 
   function setItemVisibility(item, show) {
+    const wrapper = getFilterWrapper(item);
+    const displayValue = item.dataset.originalDisplay || '';
+
     if (show) {
-      item.style.display = item.dataset.originalDisplay || '';
+      wrapper.style.display = displayValue;
+      wrapper.classList.remove('filter-hidden');
+      wrapper.classList.add('filter-visible');
       item.classList.remove('filter-hidden');
       item.classList.add('filter-visible');
       return;
     }
 
+    wrapper.classList.add('filter-hidden');
+    wrapper.classList.remove('filter-visible');
     item.classList.add('filter-hidden');
     item.classList.remove('filter-visible');
     window.setTimeout(() => {
-      if (item.classList.contains('filter-hidden')) item.style.display = 'none';
+      if (wrapper.classList.contains('filter-hidden')) wrapper.style.display = 'none';
     }, 220);
   }
 
   function refreshSectionVisibility() {
     document.querySelectorAll(SECTION_SELECTOR).forEach((section) => {
-      const hasVisibleItems = Array.from(section.querySelectorAll(ITEM_SELECTOR)).some((item) => item.style.display !== 'none');
+      const hasVisibleItems = Array.from(section.querySelectorAll(ITEM_SELECTOR)).some((item) => getFilterWrapper(item).style.display !== 'none');
       section.style.display = hasVisibleItems ? '' : 'none';
     });
   }
@@ -109,10 +118,19 @@
     });
   }
 
+  function getFilterWrapper(item) {
+    if (item.matches('a')) return item;
+    const anchorWrapper = item.closest('a.card-link');
+    if (anchorWrapper && anchorWrapper.contains(item)) return anchorWrapper;
+    return item;
+  }
+
   function runFilter() {
+
     const activeCategory = categorySelect.value || 'all';
     const activeDate = dateSelect.value || 'all';
     const bounds = getDateBounds();
+    const filterActive = activeCategory !== 'all' || activeDate !== 'all';
     let visibleCount = 0;
 
     items.forEach((item) => {
@@ -122,20 +140,23 @@
       const dateMatch = matchesDate(itemDate, activeDate, bounds);
       const show = categoryMatch && dateMatch;
       setItemVisibility(item, show);
-      if (show) visibleCount += 1;
+      if (show) {
+        visibleCount += 1;
+      }
     });
 
     refreshSectionVisibility();
+
     updateHeadlineRanks();
 
     if (filterResults) {
-      filterResults.textContent = (activeCategory !== 'all' || activeDate !== 'all')
+      filterResults.textContent = filterActive
         ? `${visibleCount} article${visibleCount !== 1 ? 's' : ''}`
         : '';
     }
 
     if (filterEmpty) {
-      filterEmpty.classList.toggle('is-visible', visibleCount === 0 && (activeCategory !== 'all' || activeDate !== 'all'));
+      filterEmpty.classList.toggle('is-visible', visibleCount === 0 && filterActive);
     }
 
     updateSelectState(categorySelect, activeCategory);

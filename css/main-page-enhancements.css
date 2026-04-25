@@ -1,0 +1,187 @@
+.filter-bar,.tools-bar{padding-block:.55rem!important}.filter-inner,.tools-bar{gap:.55rem!important}.filter-inner select,.tools-input,.tools-select{min-height:40px;padding:.45rem .8rem!important;font-size:.84rem!important}.card-linkable{cursor:pointer}.card-linkable:focus-visible{outline:2px solid rgba(200,16,46,.32);outline-offset:3px}.story-content,.hero-content,.news-card-content,.review-content,.list-content,.featured-side-content,.globe-card-content,.compact-content{display:flex;flex-direction:column}.read-more-btn{align-self:flex-start;margin-top:auto!important}.story-card,.news-card,.review-card,.category-card,.more-card,.globe-card,.headline-card,.photo-item,.featured-side-item,.compact-story{height:100%}@media (max-width:1100px){.page-layout,.sport-grid,.hero-row{grid-template-columns:1fr!important}.sidebar{width:100%!important;position:static!important;top:auto!important}}@media (max-width:900px){.stories-grid,.news-grid,.category-grid,.compact-stories,.trending-bottom-grid,.globe-grid,.photo-grid,.headlines-grid{grid-template-columns:1fr 1fr!important}.hero-story,.hero-article,.hero-main,.featured-main{min-height:auto!important}}@media (max-width:680px){.container,.page-wrapper{padding-left:1rem!important;padding-right:1rem!important}.stories-grid,.news-grid,.category-grid,.compact-stories,.trending-bottom-grid,.globe-grid,.photo-grid,.headlines-grid,.featured-side{grid-template-columns:1fr!important;display:grid!important}.featured-side-item,.compact-story{flex-direction:column!important}.featured-side-image,.compact-image,.story-image,.news-card-image,.review-image,.globe-card-image,.photo-img{width:100%!important;min-width:0!important}.filter-results{margin-left:0!important;width:100%}}
+
+/* Read-more expansion fix: keep neighboring cards from stretching */
+.stories-grid,
+.news-grid,
+.category-grid,
+.compact-stories,
+.trending-bottom-grid,
+.globe-grid,
+.photo-grid,
+.headlines-grid,
+.featured-side,
+.hero-row,
+.sport-grid,
+.page-layout,
+.more-grid {
+  align-items: start !important;
+}
+
+.story-card,
+.news-card,
+.review-card,
+.category-card,
+.more-card,
+.globe-card,
+.headline-card,
+.photo-item,
+.featured-side-item,
+.compact-story,
+.hero-story,
+.hero-article,
+.hero-main,
+.sport-main,
+.list-story,
+.sidebar-story,
+.trending-item {
+  height: auto !important;
+  align-self: start !important;
+}
+
+.read-more-btn,
+.toggle-btn {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* Read-more expansion containment fix */
+.stories-grid,
+.category-grid,
+.more-grid,
+.story-grid,
+.news-grid,
+.compact-stories,
+.featured-side,
+.sport-grid,
+.hero-featured,
+.hero-sidebar,
+.sport-sidebar {
+  align-items: start !important;
+  grid-auto-rows: max-content !important;
+}
+
+.stories-grid > *,
+.category-grid > *,
+.more-grid > *,
+.story-grid > *,
+.news-grid > *,
+.compact-stories > *,
+.featured-side > *,
+.sport-grid > *,
+.hero-featured > *,
+.hero-sidebar > *,
+.sport-sidebar > * {
+  align-self: start !important;
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.story-card,
+.category-card,
+.more-card,
+.news-card,
+.compact-story,
+.hero-story,
+.hero-main,
+.sport-main,
+.sidebar-story,
+.featured-side-item,
+.review-card,
+.trending-item,
+.list-story {
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.read-more-content,
+.story-detail-panel,
+.more-text {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .read-more-content,
+html[data-theme='dark'] .story-detail-panel,
+html[data-theme='dark'] .story-detail-panel p,
+html[data-theme='dark'] .more-text {
+  color: #eef2f7 !important;
+}
+
+
+/* Shared main-page polish */
+main > .container,
+main > .page-wrapper {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.tools-bar {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(180px, 220px)) !important;
+  justify-content: start !important;
+  align-items: end !important;
+  width: min(100%, 520px) !important;
+  max-width: 100% !important;
+  padding: 0.82rem 0.9rem !important;
+  margin: 1.35rem 0 1.5rem !important;
+  border-radius: 16px !important;
+  gap: 0.75rem !important;
+}
+
+.tools-field {
+  min-width: 0;
+}
+
+.tools-label {
+  margin: 0 0 0.1rem;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+.tools-input,
+.tools-select {
+  min-height: 40px !important;
+  padding: 0.58rem 0.8rem !important;
+  font-size: 0.88rem !important;
+  border-radius: 11px !important;
+}
+
+.section-header,
+.sport-header,
+.approved-feed-header {
+  align-items: end !important;
+}
+
+.compact-stories > a.card-link,
+.story-grid > a.card-link,
+.news-grid > a.card-link,
+.category-grid > a.card-link,
+.more-grid > a.card-link,
+.globe-grid > a.card-link,
+.headlines-grid > a.card-link {
+  display: block !important;
+  width: 100% !important;
+}
+
+.compact-story,
+.story-card,
+.news-card,
+.category-card,
+.more-card,
+.globe-card,
+.headline-card,
+.hero-main,
+.hero-story,
+.sport-main,
+.sidebar-story,
+.list-story,
+.approved-feed-card {
+  box-sizing: border-box;
+}
+
+@media (max-width: 680px) {
+  .tools-bar {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+}

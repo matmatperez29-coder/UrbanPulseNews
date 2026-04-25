@@ -571,3 +571,66 @@ main {
 }
 
 
+
+
+/* Read-more expansion containment fix */
+.stories-grid,
+.category-grid,
+.more-grid,
+.story-grid,
+.news-grid,
+.compact-stories,
+.featured-side,
+.sport-grid,
+.hero-featured,
+.hero-sidebar,
+.sport-sidebar {
+  align-items: start !important;
+  grid-auto-rows: max-content !important;
+}
+
+.stories-grid > *,
+.category-grid > *,
+.more-grid > *,
+.story-grid > *,
+.news-grid > *,
+.compact-stories > *,
+.featured-side > *,
+.sport-grid > *,
+.hero-featured > *,
+.hero-sidebar > *,
+.sport-sidebar > * {
+  align-self: start !important;
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.story-card,
+.category-card,
+.more-card,
+.news-card,
+.compact-story,
+.hero-story,
+.hero-main,
+.sport-main,
+.sidebar-story,
+.featured-side-item,
+.review-card,
+.trending-item,
+.list-story {
+  height: fit-content !important;
+  min-height: 0 !important;
+}
+
+.read-more-content,
+.story-detail-panel,
+.more-text {
+  color: var(--color-text) !important;
+}
+
+html[data-theme='dark'] .read-more-content,
+html[data-theme='dark'] .story-detail-panel,
+html[data-theme='dark'] .story-detail-panel p,
+html[data-theme='dark'] .more-text {
+  color: #eef2f7 !important;
+}

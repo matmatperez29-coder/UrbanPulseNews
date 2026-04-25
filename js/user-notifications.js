@@ -6,7 +6,7 @@
   const state = { open: false, unread: 0, items: [] };
 
   function hasLoggedInUI() {
-    return !!document.querySelector('.nav-avatar, .nav-logout-btn, .header-user-profile, a[href="php/logout.php"]');
+    return !!document.querySelector('.nav-avatar, .nav-logout-btn, .header-user-profile, a[href="logout.php"]');
   }
 
   function targetContainer() {
@@ -113,14 +113,14 @@
     const host = ensureUI();
     if (!host) return;
     try {
-      const res = await fetch('notifications-php/api.php?action=list', { credentials: 'same-origin' });
+      const res = await fetch('notifications-api.php?action=list', { credentials: 'same-origin' });
       const data = await res.json();
       if (!data || data.notLoggedIn) return;
       state.items = Array.isArray(data.notifications) ? data.notifications : [];
       state.unread = Number(data.unread || 0);
       render();
       if (markRead && state.unread > 0) {
-        await fetch('notifications-php/api.php', {
+        await fetch('notifications-api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           credentials: 'same-origin',
