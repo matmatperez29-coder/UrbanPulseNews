@@ -286,7 +286,7 @@ $statusColors = [
   </div>
 
   
-<script src="ui-interactions.js"></script>
+<script src="ui-js/interactions.js"></script>
 <script>
   <?php if ($success): ?>
   window.addEventListener('load', function () {

@@ -240,17 +240,17 @@ $ARTICLE_ID = 'submission-' . $article['id'];
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="burger.js"></script>
-  <script src="theme.js"></script>
-<script src="search.js"></script>
-  <script src="pulse-features.js"></script>
-<script src="article-interactions.js"></script>
+<script src="js/burger.js"></script>
+  <script src="js/theme.js"></script>
+<script src="js/search.js"></script>
+  <script src="js/pulse-features.js"></script>
+<script src="js/article-js/interactions.js"></script>
 <script>
     const UP_ARTICLE_ID = <?= json_encode($ARTICLE_ID) ?>;
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
     const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;
     const UP_CURRENT_USER_ID = <?php echo $currentUser ? (int)$currentUser['id'] : 'null'; ?>;
 </script>
-<script src="article-interactions.js"></script>
+<script src="js/article-js/interactions.js"></script>
 </body>
 </html>

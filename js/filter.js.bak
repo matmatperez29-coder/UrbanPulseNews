@@ -1,5 +1,5 @@
 /* ============================================================
-   filter.js — UrbanPulse shared page filters
+   js/filter.js — UrbanPulse shared page filters
    Works across Home, Technology, Sports, Entertainment, World News
    ============================================================ */
 

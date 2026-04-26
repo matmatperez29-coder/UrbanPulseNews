@@ -227,7 +227,7 @@ if (!isset($currentUser)) {
     </div>
   </div>
 
-  <script src="ui-interactions.js"></script>
+  <script src="ui-js/interactions.js"></script>
 
   <!-- TRANSCRIPT MODAL -->
   <div class="pulse-transcript-modal" id="pulseTranscriptModal" hidden aria-hidden="true">

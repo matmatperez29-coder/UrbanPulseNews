@@ -87,7 +87,7 @@ button { background: none; border: none; cursor: pointer; }
 .search-toggle { color: var(--color-text-light); transition: color 0.2s; }
 .search-toggle:hover { color: var(--color-secondary); }
 
-/* Search dropdown (used by search.js as #results .sr-dropdown) */
+/* Search dropdown (used by js/search.js as #results .sr-dropdown) */
 .sr-dropdown {
   position: absolute;
   top: calc(100% + 10px); right: 0;

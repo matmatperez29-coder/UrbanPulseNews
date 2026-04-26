@@ -328,13 +328,13 @@ $currentUser = getCurrentUser();
 </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="burger.js"></script>
-<script src="theme.js"></script>
-<script src="search.js"></script>
-<script src="filter.js"></script>
-<script src="interactions.js"></script>
-<script src="pulse-features.js"></script>
-<script src="article-interactions.js"></script>
-<script src="editorial-tools.js"></script>
-<script src="main-page-links.js"></script></body>
+<script src="js/burger.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/search.js"></script>
+<script src="js/filter.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/pulse-features.js"></script>
+<script src="js/article-js/interactions.js"></script>
+<script src="js/editorial-tools.js"></script>
+<script src="js/main-page-links.js"></script></body>
 </html>

@@ -21,7 +21,7 @@ if ($confirmed) {
   <link rel="stylesheet" href="css/navfooter.css">
 </head>
 <body style="margin:0;min-height:100vh;background:#f8f8f8;display:grid;place-items:center;">
-  <script src="ui-interactions.js"></script>
+  <script src="ui-js/interactions.js"></script>
   <script>
     window.addEventListener('load', function () {
       if (window.UrbanPulseUI && typeof window.UrbanPulseUI.openModal === 'function') {

@@ -3,7 +3,7 @@ UrbanPulse transfer and fixes applied
 1. Transferred Sports and Technology category content from urbanpulse.zip into this project.
 2. Copied all Sports and Technology article PHP files referenced by those pages.
 3. Copied Sports and Technology image folders into /images/sports and /images/technology.
-4. Added interactions.js required by the transferred category pages.
+4. Added js/interactions.js required by the transferred category pages.
 5. Removed the bottom category-page comment sections from sports.php and technology.php.
 6. Kept article-level comments and reactions working.
 7. Improved comment deletion:
@@ -16,7 +16,7 @@ UrbanPulse transfer and fixes applied
 
 Important:
 - No new database schema change was required for these requested features.
-- Comment delete works through api.php and article-interactions.js.
+- Comment delete works through api.php and js/article-js/interactions.js.
 
 
 [2026-04-18]

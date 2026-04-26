@@ -1,5 +1,5 @@
 /* ============================================================
-   article-interactions.js — UrbanPulse
+   js/article-js/interactions.js — UrbanPulse
    Handles: reactions, comments, replies, article submit CTA, shares
 ============================================================ */
 (() => {
@@ -205,9 +205,9 @@
       link.href = 'css/user-notifications.css';
       document.head.appendChild(link);
     }
-    if (!window.UPNotificationsLoaded && !document.querySelector('script[src="user-notifications.js"]')) {
+    if (!window.UPNotificationsLoaded && !document.querySelector('script[src="js/user-notifications.js"]')) {
       const script = document.createElement('script');
-      script.src = 'user-notifications.js';
+      script.src = 'js/user-notifications.js';
       document.body.appendChild(script);
     }
   }
