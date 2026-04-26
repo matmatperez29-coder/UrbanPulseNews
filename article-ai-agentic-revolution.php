@@ -1,7 +1,8 @@
 <?php
-require_once 'php/php/db.php';   // Added this to ensure DB connects!
-require_once 'php/php/auth.php'; 
-$currentUser = getCurrentUser(); // Removed the $pdo from inside the parentheses
+// Point to the new folder location
+require_once __DIR__ . '/php/db.php';   
+require_once __DIR__ . '/php/auth.php'; 
+$currentUser = getCurrentUser(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
