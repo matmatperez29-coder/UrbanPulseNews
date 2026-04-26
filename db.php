@@ -1,30 +1,21 @@
 <?php
-// php/db.php — Database connection
-// Include this in every PHP file that needs the database
+// Grab the variables you just put into Railway
+$host = getenv('DB_HOST');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASSWORD');
+$port = "5432";
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');        // XAMPP default
-define('DB_PASS', '');            // XAMPP default (empty password)
-define('DB_NAME', 'urbanpulse_db');
-
-function getDB() {
-    static $pdo = null;
-    if ($pdo === null) {
-        try {
-            $pdo = new PDO(
-                'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
-                DB_USER,
-                DB_PASS,
-                [
-                    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::ATTR_EMULATE_PREPARES   => false,
-                ]
-            );
-        } catch (PDOException $e) {
-            http_response_code(500);
-            die(json_encode(['error' => 'Database connection failed.']));
-        }
-    }
-    return $pdo;
+try {
+    // This is the magic line! Notice the 'pgsql:' prefix instead of 'mysql:'
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db";
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ]);
+} catch (\PDOException $e) {
+    // If it crashes, this will actually tell us WHY instead of giving a blank 500 error
+    die("Database connection failed: " . $e->getMessage());
 }
+?>
