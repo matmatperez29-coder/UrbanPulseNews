@@ -51,7 +51,7 @@
       submitBtn.textContent = 'Posting...';
 
       try {
-        const res = await fetch('php/php/api.php', {
+        const res = await fetch('php/api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -72,7 +72,7 @@
         }
       } catch (error) {
         console.error('Submission failed:', error);
-        alert('Could not connect to php/php/api.php. Check your console (F12).');
+        alert('Could not connect to php/api.php. Check your console (F12).');
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Post Comment';
@@ -214,7 +214,7 @@
 
   async function fetchInteractions() {
     try {
-      const res = await fetch(`php/php/api.php?action=get_data&article_id=${encodeURIComponent(ARTICLE_ID)}`);
+      const res = await fetch(`php/api.php?action=get_data&article_id=${encodeURIComponent(ARTICLE_ID)}`);
       const data = await res.json();
       if (!data || data.error) return;
       state.reactions = data.reactions || {};
@@ -260,7 +260,7 @@
 
         const key = btn.dataset.key;
         try {
-          const res = await fetch('php/php/api.php', {
+          const res = await fetch('php/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'toggle_reaction', article_id: ARTICLE_ID, reaction: key })
@@ -376,7 +376,7 @@
         }
         const commentId = Number(btn.dataset.id);
         try {
-          const res = await fetch('php/php/api.php', {
+          const res = await fetch('php/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'toggle_like', article_id: ARTICLE_ID, comment_id: commentId })
@@ -437,7 +437,7 @@
         }
 
         try {
-          const res = await fetch('php/php/api.php', {
+          const res = await fetch('php/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'add_comment', article_id: ARTICLE_ID, body, parent_id: parentId })
@@ -467,7 +467,7 @@
         const confirmed = await ensureDeleteModal().open();
         if (!confirmed) return;
         try {
-          const res = await fetch('php/php/api.php', {
+          const res = await fetch('php/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'delete_comment', article_id: ARTICLE_ID, comment_id: commentId })
@@ -510,7 +510,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Posting...';
       try {
-        const res = await fetch('php/php/api.php', {
+        const res = await fetch('php/api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'add_comment', article_id: ARTICLE_ID, body: text })

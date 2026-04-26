@@ -16,7 +16,7 @@ UrbanPulse transfer and fixes applied
 
 Important:
 - No new database schema change was required for these requested features.
-- Comment delete works through php/php/api.php and js/article-js/interactions.js.
+- Comment delete works through php/api.php and js/article-js/interactions.js.
 
 
 [2026-04-18]

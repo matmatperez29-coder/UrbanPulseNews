@@ -113,14 +113,14 @@
     const host = ensureUI();
     if (!host) return;
     try {
-      const res = await fetch('notifications-php/php/api.php?action=list', { credentials: 'same-origin' });
+      const res = await fetch('notifications-php/api.php?action=list', { credentials: 'same-origin' });
       const data = await res.json();
       if (!data || data.notLoggedIn) return;
       state.items = Array.isArray(data.notifications) ? data.notifications : [];
       state.unread = Number(data.unread || 0);
       render();
       if (markRead && state.unread > 0) {
-        await fetch('notifications-php/php/api.php', {
+        await fetch('notifications-php/api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           credentials: 'same-origin',
