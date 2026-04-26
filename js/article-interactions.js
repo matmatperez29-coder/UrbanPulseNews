@@ -199,10 +199,10 @@
   }
 
   function ensureNotificationAssets() {
-    if (!document.querySelector('link[href="user-notifications.css"]')) {
+    if (!document.querySelector('link[href="css/user-notifications.css"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'user-notifications.css';
+      link.href = 'css/user-notifications.css';
       document.head.appendChild(link);
     }
     if (!window.UPNotificationsLoaded && !document.querySelector('script[src="user-notifications.js"]')) {

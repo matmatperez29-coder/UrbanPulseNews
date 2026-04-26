@@ -1,5 +1,5 @@
 /* ============================================
-   article.css — UrbanPulse Article Page
+   css/article.css — UrbanPulse Article Page
 ============================================ */
 
 .article-page { background: var(--color-surface,#f4f4f4); padding: 2rem 1.5rem 4rem; }
@@ -115,7 +115,7 @@ a.news-related-headline:hover { opacity:.75; }
 @media(max-width:900px){.article-container{grid-template-columns:1fr}.sidebar{position:static}}
 @media(max-width:600px){.hero-news{padding:1.25rem}.hero-title{font-size:1.6rem}.comment-form-row{grid-template-columns:1fr}.reaction-buttons{gap:.5rem}.reaction-btn{min-width:60px;padding:.5rem .75rem}}
 /* ══════════════════════════════════
-   DARK MODE — article.css
+   DARK MODE — css/article.css
 ══════════════════════════════════ */
 html[data-theme='dark'] body { background: #0f1115; color: #e7ecf4; }
 

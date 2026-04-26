@@ -23,7 +23,7 @@ if (!$article) {
     require_once 'db.php'; require_once 'auth.php';
     ?><!DOCTYPE html><html lang="en"><head><title>Not Found — UrbanPulse</title>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="navfooter.css"><link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/navfooter.css"><link rel="stylesheet" href="css/home.css">
     </head><body><?php require_once 'nav.php'; ?>
     <div style="text-align:center;padding:5rem 1rem;">
       <div style="font-size:4rem;margin-bottom:1rem;">📭</div>
@@ -48,12 +48,12 @@ $ARTICLE_ID = 'submission-' . $article['id'];
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="navfooter.css">
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="burgermenu.css">
-  <link rel="stylesheet" href="article.css">
-  <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="pulse-features.css">
+  <link rel="stylesheet" href="css/navfooter.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/burgermenu.css">
+  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/pulse-features.css">
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
   <style>
     #searchBox:empty::before{content:attr(data-placeholder);color:#aaa;font-style:italic;pointer-events:none;}

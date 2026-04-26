@@ -18,7 +18,7 @@ if ($confirmed) {
   <title>UrbanPulse | Confirm Logout</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="navfooter.css">
+  <link rel="stylesheet" href="css/navfooter.css">
 </head>
 <body style="margin:0;min-height:100vh;background:#f8f8f8;display:grid;place-items:center;">
   <script src="ui-interactions.js"></script>

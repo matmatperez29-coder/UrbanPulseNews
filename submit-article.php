@@ -41,7 +41,7 @@ $currentUser = $user;
 if (!in_array($user['role'], ['author', 'admin'])) {
     die('
     <!DOCTYPE html><html><head><title>Access Denied</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
     </head><body style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f4f4f4;">
     <div style="text-align:center;background:white;padding:2.5rem;border-radius:12px;max-width:400px;">
         <div style="font-size:3rem;margin-bottom:1rem;">🚫</div>
@@ -118,8 +118,8 @@ $statusColors = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="navfooter.css">
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="css/navfooter.css">
+  <link rel="stylesheet" href="css/home.css">
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
   <style>
     body { background: #f4f4f4; }

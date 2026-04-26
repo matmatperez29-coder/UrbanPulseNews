@@ -96,7 +96,7 @@ $catLabels = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="navfooter.css">
+  <link rel="stylesheet" href="css/navfooter.css">
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
   <style>
     * { box-sizing: border-box; }

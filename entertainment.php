@@ -23,11 +23,11 @@ $currentUser = getCurrentUser();
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="navfooter.css" rel="stylesheet"/>
-<link href="technology.css" rel="stylesheet"/>
-<link href="burgermenu.css" rel="stylesheet"/>
-<link href="theme.css" rel="stylesheet"/>
-<link href="pulse-features.css" rel="stylesheet"/>
+<link href="css/navfooter.css" rel="stylesheet"/>
+<link href="css/technology.css" rel="stylesheet"/>
+<link href="css/burgermenu.css" rel="stylesheet"/>
+<link href="css/theme.css" rel="stylesheet"/>
+<link href="css/pulse-features.css" rel="stylesheet"/>
 <link href="IMAGES/UrbanPulse.png" rel="icon" type="image/x-icon"/>
 <style>
     .active { color: #c8102e; text-decoration: underline; text-decoration-color: #c8102e; text-decoration-thickness: 1.5px; }
@@ -108,8 +108,8 @@ $currentUser = getCurrentUser();
     @media (max-width: 760px) { .news-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .news-grid { grid-template-columns: 1fr; } }
   </style>
-<link href="category-approved-section.css" rel="stylesheet"/>
-<link href="main-page-enhancements.css" rel="stylesheet"/></head>
+<link href="css/category-approved-section.css" rel="stylesheet"/>
+<link href="css/main-page-enhancements.css" rel="stylesheet"/></head>
 <body data-page="&lt;?php echo htmlspecialchars($pageId, ENT_QUOTES, 'UTF-8'); ?&gt;">
 <?php require_once 'nav.php'; ?>
 <main>

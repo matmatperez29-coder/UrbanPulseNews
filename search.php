@@ -19,10 +19,10 @@ $scope = $pageId === 'home' ? 'all' : $pageId;
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="navfooter.css" />
-  <link rel="stylesheet" href="burgermenu.css" />
-  <link rel="stylesheet" href="theme.css" />
-  <link rel="stylesheet" href="pulse-features.css" />
+  <link rel="stylesheet" href="css/navfooter.css" />
+  <link rel="stylesheet" href="css/burgermenu.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/pulse-features.css" />
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png" />
   <style>
     body { background: var(--theme-body-bg, #fff); color: var(--color-text, #2d2d2d); }
