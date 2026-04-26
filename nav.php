@@ -40,7 +40,7 @@ if (!isset($currentUser)) {
           aria-label="Open menu" aria-controls="burgerMenu" aria-expanded="false">
           <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>
-        <a href="home.php" class="header-logo">
+        <a href='index.php' class="header-logo">
           <h1>UrbanPulse</h1>
           <p class="header-logo-tagline">Feel the Ripple!</p>
         </a>
@@ -48,7 +48,7 @@ if (!isset($currentUser)) {
 
       <!-- CENTER: Nav links -->
       <nav class="main-nav">
-        <a href="home.php"          <?= (basename($_SERVER['PHP_SELF'])==='home.php')          ? 'class="active"':'' ?>>Home</a>
+        <a href='index.php'          <?= (basename($_SERVER['PHP_SELF'])==='index.php')          ? 'class="active"':'' ?>>Home</a>
         <a href="technology.php"    <?= (basename($_SERVER['PHP_SELF'])==='technology.php')    ? 'class="active"':'' ?>>Technology</a>
         <a href="sports.php"        <?= (basename($_SERVER['PHP_SELF'])==='sports.php')        ? 'class="active"':'' ?>>Sports</a>
         <a href="entertainment.php" <?= (basename($_SERVER['PHP_SELF'])==='entertainment.php') ? 'class="active"':'' ?>>Entertainment</a>
@@ -159,7 +159,7 @@ if (!isset($currentUser)) {
       <div class="burger-section">
         <div class="burger-section-title">Browse</div>
         <nav class="burger-links">
-          <a class="burger-link" data-nav href="home.php">Home</a>
+          <a class="burger-link" data-nav href='index.php'>Home</a>
           <a class="burger-link" data-nav href="technology.php">Technology</a>
           <a class="burger-link" data-nav href="sports.php">Sports</a>
           <a class="burger-link" data-nav href="entertainment.php">Entertainment</a>

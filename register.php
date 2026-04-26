@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main class="auth-page">
     <div class="auth-box">
-      <a href="home.php" class="auth-logo">UrbanPulse</a>
+      <a href='index.php' class="auth-logo">UrbanPulse</a>
       <p class="auth-tagline">Feel the Ripple!</p>
       <h1 class="auth-title">Create your account</h1>
 

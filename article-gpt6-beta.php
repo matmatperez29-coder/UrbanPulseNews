@@ -221,7 +221,7 @@ $currentUser = getCurrentUser(); // Returns user data if logged in, or null if n
       <div class="burger-section">
         <div class="burger-section-title">Browse</div>
         <nav class="burger-links">
-          <a class="burger-link" data-nav href="home.php">Home</a>
+          <a class="burger-link" data-nav href='index.php'>Home</a>
           <a class="burger-link" data-nav href="technology.php">Technology</a>
           <a class="burger-link" data-nav href="sports.php">Sports</a>
           <a class="burger-link" data-nav href="entertainment.php">Entertainment</a>

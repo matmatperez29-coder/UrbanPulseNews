@@ -35,7 +35,7 @@ if ($confirmed) {
           onConfirm: function () { window.location.replace('logout.php?confirmed=1'); },
           onCancel: function () {
             if (document.referrer) window.history.back();
-            else window.location.replace('home.php');
+            else window.location.replace('index.php');
           }
         });
       }

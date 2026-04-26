@@ -477,7 +477,7 @@ $pageId = 'about';
     <div class="footer-container" style="max-width:1280px;margin:0 auto;">
       <div class="footer-content">
         <div class="footer-section"><h4>UrbanPulse</h4><p>Independent journalism you can trust. Delivering truth in every story since 2026.</p></div>
-        <div class="footer-section"><h4>Navigate</h4><ul><li><a href="home.php">Home</a></li><li><a href="technology.php">Technology</a></li><li><a href="sports.php">Sports</a></li><li><a href="entertainment.php">Entertainment</a></li><li><a href="worldnews.php">World News</a></li></ul></div>
+        <div class="footer-section"><h4>Navigate</h4><ul><li><a href='index.php'>Home</a></li><li><a href="technology.php">Technology</a></li><li><a href="sports.php">Sports</a></li><li><a href="entertainment.php">Entertainment</a></li><li><a href="worldnews.php">World News</a></li></ul></div>
         <div class="footer-section"><h4>Company</h4><ul><li><a href="about.php">About Us</a></li><li><a href="contact.php">Contact</a></li></ul></div>
         <div class="footer-section" id="pledge"><h4>Pledge</h4><p>We, the UrbanPulse team, pledge to deliver news that keeps people informed, aware, and always updated.</p></div>
       </div>

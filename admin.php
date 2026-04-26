@@ -244,9 +244,9 @@ $catLabels = [
 <!-- ADMIN TOP NAV -->
 <nav class="admin-topnav">
   <div class="admin-topnav-left">
-    <a href="home.php" class="admin-brand">Urban<span>Pulse</span></a>
+    <a href='index.php' class="admin-brand">Urban<span>Pulse</span></a>
     <a href="admin.php" class="admin-nav-link active">📋 Submissions</a>
-    <a href="home.php" class="admin-nav-link">🏠 View Site</a>
+    <a href='index.php' class="admin-nav-link">🏠 View Site</a>
     <a href="submit-article.php" class="admin-nav-link">✍️ Submit Article</a>
   </div>
   <div class="admin-topnav-right">

@@ -29,7 +29,7 @@ if (!$article) {
       <div style="font-size:4rem;margin-bottom:1rem;">📭</div>
       <h1 style="font-family:serif;margin-bottom:.5rem;">Article Not Found</h1>
       <p style="color:#666;margin-bottom:1.5rem;">This article doesn't exist or hasn't been approved yet.</p>
-      <a href="home.php" style="background:#c8102e;color:white;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
+      <a href='index.php' style="background:#c8102e;color:white;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
     </div></body></html><?php exit;
 }
 

@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_role']         = $user['role'];
             $_SESSION['user_avatar_color'] = $user['avatar_color'];
 
-            $redirect = $_GET['redirect'] ?? 'home.php';
+            $redirect = $_GET['redirect'] ?? 'index.php';
             header('Location: ' . $redirect);
             exit;
         }
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <main class="auth-page">
     <div class="auth-box">
-      <a href="home.php" class="auth-logo">UrbanPulse</a>
+      <a href='index.php' class="auth-logo">UrbanPulse</a>
       <p class="auth-tagline">Feel the Ripple!</p>
       <h1 class="auth-title">Sign in to your account</h1>
 
