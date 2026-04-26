@@ -8,7 +8,7 @@ require_once __DIR__ . '/php/db.php';
 require_once __DIR__ . '/php/auth.php';
 
 if (isLoggedIn()) {
-    header('Location: home.php');
+    header('Location: index.php');
     exit;
 }
 
