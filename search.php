@@ -4,7 +4,7 @@ $allowedPages = ['home', 'technology', 'sports', 'entertainment', 'worldnews'];
 if (!in_array($pageId, $allowedPages, true)) {
     $pageId = 'home';
 }
-require_once 'php/php/db.php';
+require_once __DIR__ . '/php/db.php';
 require_once 'php/php/auth.php';
 $currentUser = getCurrentUser();
 $query = trim((string)($_GET['q'] ?? ''));

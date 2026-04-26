@@ -1,5 +1,5 @@
 <?php
-require_once 'php/php/db.php';
+require_once __DIR__ . '/php/db.php';
 require_once 'php/php/auth.php';
 
 if (isLoggedIn()) {
