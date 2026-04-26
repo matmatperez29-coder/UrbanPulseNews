@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/php/db.php';
-require_once __DIR__ . '/php/auth.php';nce __DIR__ . '/php/auth.php';
+require_once __DIR__ . '/php/auth.php';
 
 if (isLoggedIn()) {
     header('Location: home.php');
