@@ -1,5 +1,5 @@
 <?php
-// db.php — Database connection
+// php/db.php — Database connection
 // Include this in every PHP file that needs the database
 
 define('DB_HOST', 'localhost');

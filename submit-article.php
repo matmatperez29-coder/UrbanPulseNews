@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';
-require_once 'auth.php';
+require_once 'php/db.php';
+require_once 'php/auth.php';
 
 // Must be logged in
 if (!isLoggedIn()) {
@@ -187,7 +187,7 @@ $statusColors = [
           <a href="admin.php" style="font-size:.85rem;font-weight:700;color:#c8102e;text-decoration:none;">Admin Panel</a>
           <span class="header-right-divider"></span>
         <?php endif; ?>
-        <a href="logout.php" style="font-size:.85rem;font-weight:700;color:#666;text-decoration:none;">Log Out</a>
+        <a href="php/logout.php" style="font-size:.85rem;font-weight:700;color:#666;text-decoration:none;">Log Out</a>
       </div>
     </div>
   </header>
@@ -207,7 +207,7 @@ $statusColors = [
 
     <!-- SUBMISSION FORM -->
     <div class="submit-box">
-      <form method="POST" action="submit-article.php" id="articleSubmitForm" data-confirm-submit="article">
+      <form method="POST" action="php/submit-article.php" id="articleSubmitForm" data-confirm-submit="article">
 
         <div class="form-row">
           <div class="form-field">

@@ -1,7 +1,7 @@
 <?php
 $pageId = 'sports';
-require_once 'db.php';
-require_once 'auth.php'; // This also starts the session and connects to the DB
+require_once 'php/db.php';
+require_once 'php/auth.php'; // This also starts the session and connects to the DB
 $currentUser = getCurrentUser(); // Returns user data if logged in, or null if not
 ?>
 <!DOCTYPE html>
@@ -292,7 +292,7 @@ $currentUser = getCurrentUser(); // Returns user data if logged in, or null if n
 </article>
 </div>
 </section>
-<?php require_once 'category-approved-section.php'; renderApprovedCategorySection(getDB(), 'sports', ['title' => 'Approved sports articles', 'eyebrow' => 'Editorial review']); ?>
+<?php require_once 'php/category-approved-section.php'; renderApprovedCategorySection(getDB(), 'sports', ['title' => 'Approved sports articles', 'eyebrow' => 'Editorial review']); ?>
 <div class="section-divider"></div>
 <section class="newsletter-section">
 <div>

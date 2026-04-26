@@ -4,8 +4,8 @@ $allowedPages = ['home', 'technology', 'sports', 'entertainment', 'worldnews'];
 if (!in_array($pageId, $allowedPages, true)) {
     $pageId = 'home';
 }
-require_once 'db.php';
-require_once 'auth.php';
+require_once 'php/db.php';
+require_once 'php/auth.php';
 $currentUser = getCurrentUser();
 $query = trim((string)($_GET['q'] ?? ''));
 $scope = $pageId === 'home' ? 'all' : $pageId;

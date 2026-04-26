@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';
-require_once 'auth.php';
+require_once 'php/db.php';
+require_once 'php/auth.php';
 $currentUser = getCurrentUser();
 ?>
 <?php $pageId = 'worldnews'; ?>
@@ -239,7 +239,7 @@ $currentUser = getCurrentUser();
 <article class="photo-item size-md news-item card-linkable" data-article-url="article-worldnews-melting-arctic-sea-ice-highlights-the-accelerating-impacts-of-climate-change-on-.php" data-category="environment" data-date="2026-03-10"><div class="photo-img" style="background-image:url('https://i.cbc.ca/ais/1.1545929,1386884819000/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1180%2C663%29%3B')"></div><div class="photo-overlay"><span class="photo-cat-pill">Environment</span><div class="photo-loc-row">📍 Greenland · March 10, 2026</div><p class="photo-cap">Melting Arctic sea ice highlights the accelerating impacts of climate change on fragile polar ecosystems.</p><span class="photo-credit">Photo: Anya Berkut / UrbanPulse</span></div></article>
 </div>
 </section>
-<?php require_once 'category-approved-section.php'; renderApprovedCategorySection(getDB(), 'worldnews', ['title' => 'Approved world news articles', 'eyebrow' => 'Editorial review']); ?>
+<?php require_once 'php/category-approved-section.php'; renderApprovedCategorySection(getDB(), 'worldnews', ['title' => 'Approved world news articles', 'eyebrow' => 'Editorial review']); ?>
 </div><!-- /page-wrapper -->
 <footer class="footer">
 <div class="footer-container">

@@ -152,7 +152,7 @@
   async function fetchAccountNotifications(markRead = false) {
     if (!accountList) return;
     try {
-      const res = await fetch('notifications-api.php?action=list', { credentials: 'same-origin', cache: 'no-store' });
+      const res = await fetch('notifications-php/api.php?action=list', { credentials: 'same-origin', cache: 'no-store' });
       const data = await res.json();
       if (!data || data.notLoggedIn) {
         state.account = [];
@@ -166,7 +166,7 @@
       renderAccount();
 
       if (markRead && state.accountUnread > 0) {
-        await fetch('notifications-api.php', {
+        await fetch('notifications-php/api.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           credentials: 'same-origin',

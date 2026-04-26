@@ -1,7 +1,7 @@
 <?php
 $pageId = 'technology';
-require_once 'db.php';
-require_once 'auth.php'; // This also starts the session and connects to the DB
+require_once 'php/db.php';
+require_once 'php/auth.php'; // This also starts the session and connects to the DB
 $currentUser = getCurrentUser(); // Returns user data if logged in, or null if not
 ?>
 <!DOCTYPE html>
@@ -313,7 +313,7 @@ $currentUser = getCurrentUser(); // Returns user data if logged in, or null if n
 </div>
 </div>
 <div class="container">
-<?php require_once 'category-approved-section.php'; renderApprovedCategorySection(getDB(), 'technology', ['title' => 'Approved technology articles', 'eyebrow' => 'Editorial review']); ?>
+<?php require_once 'php/category-approved-section.php'; renderApprovedCategorySection(getDB(), 'technology', ['title' => 'Approved technology articles', 'eyebrow' => 'Editorial review']); ?>
 </div>
 </main>
 <footer class="footer">
