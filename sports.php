@@ -18,10 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/navfooter.css">
-  <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/sports.css">
-    <link rel="stylesheet" href="css/burgermenu.css">
+    <link rel="stylesheet" href="navfooter.css">
+  <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="sports.css">
+    <link rel="stylesheet" href="burgermenu.css">
     <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
 
     <style>
@@ -33,8 +33,8 @@
       }
     </style>
 
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/pulse-features.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="pulse-features.css">
 </head>
 <body data-page="<?php echo htmlspecialchars($pageId, ENT_QUOTES, 'UTF-8'); ?>">
 
@@ -79,7 +79,7 @@
 
     <!-- CENTER: Navigation -->
     <nav class="main-nav">
-      <a href="index.php"> Home </a>
+      <a href="home.php"> Home </a>
       <a href="technology.php"> Technology </a>
       <a href="sports.php" class="active"> Sports </a>
       <a href="entertainment.php"> Entertainment </a>
@@ -486,7 +486,7 @@
         <div class="burger-section">
           <div class="burger-section-title">Browse</div>
           <nav class="burger-links" aria-label="Primary">
-            <a class="burger-link" data-nav href="index.php">Home</a>
+            <a class="burger-link" data-nav href="home.php">Home</a>
             <a
               class="burger-link"
               data-nav
@@ -545,11 +545,11 @@
     </aside>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="js/burger.js"></script>
-	<script src="js/theme.js"></script>
-	<script src="js/interactions.js"></script>
+		<script src="burger.js"></script>
+	<script src="theme.js"></script>
+	<script src="interactions.js"></script>
 	<script src="comments_updated.js"></script>
-<script src="js/pulse-features.js"></script>
-<script src="js/editorial-tools.js"></script>
+<script src="pulse-features.js"></script>
+<script src="editorial-tools.js"></script>
 </body>
 </html>
