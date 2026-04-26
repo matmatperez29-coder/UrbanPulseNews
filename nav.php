@@ -3,14 +3,14 @@
 if (!isset($currentUser)) {
     if (!function_exists('getCurrentUser')) {
         require_once __DIR__ . '/php/php/db.php';
-        require_once __DIR__ . '/php/php/auth.php';
+        require_once __DIR__ . '/php/auth.php';
     }
     $currentUser = getCurrentUser();
 }
 ?>
 <?php
 // nav.php — Shared header include
-// Usage: require_once 'nav.php'; at top of every page (after php/php/auth.php)
+// Usage: require_once 'nav.php'; at top of every page (after php/auth.php)
 // Requires $currentUser to already be set
 ?>
   <!-- BREAKING NEWS -->

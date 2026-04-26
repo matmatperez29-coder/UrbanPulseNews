@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/php/db.php';
-require_once 'php/php/auth.php';
+require_once __DIR__ . '/php/auth.php';
 
 if (isLoggedIn()) {
     header('Location: home.php');

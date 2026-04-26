@@ -1,5 +1,5 @@
 <?php
-require_once 'php/php/auth.php';
+require_once __DIR__ . '/php/auth.php';
 
 $confirmed = isset($_GET['confirmed']) && $_GET['confirmed'] === '1';
 

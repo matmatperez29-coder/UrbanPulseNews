@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/php/db.php';
-require_once 'php/php/auth.php';
+require_once __DIR__ . '/php/auth.php';
 
 function fail_json(string $message, int $code = 400): void {
     http_response_code($code);
