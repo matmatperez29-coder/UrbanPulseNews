@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/php/db.php';
-require_once __DIR__ . '/php/auth.php';
-$currentUser = getCurrentUser();
+require_once 'db.php';   // Added this to ensure DB connects!
+require_once 'auth.php'; 
+$currentUser = getCurrentUser(); // Removed the $pdo from inside the parentheses
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -203,6 +203,7 @@ $currentUser = getCurrentUser();
   <script src="theme.js"></script>
   <script src="search.js"></script>
   <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
   <script>
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
     const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;

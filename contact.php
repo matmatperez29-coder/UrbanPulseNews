@@ -42,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="pulse-features.css">
   <link rel="icon" type="image/x-icon" href="IMAGES/UrbanPulse.png">
   <style>
+    .BreakingNews {
+    display: none !important;
+  }
     :root {
       --color-primary: #1a1a1a;
       --color-secondary: #c8102e;
@@ -424,5 +427,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <script src="theme.js"></script>
   <script src="search.js"></script>
   <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
 </body>
 </html>

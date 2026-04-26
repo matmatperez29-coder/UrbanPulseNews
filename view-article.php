@@ -1,12 +1,12 @@
 <?php
-require_once 'php/php/php//php/auth.php';
-require_once 'php/php/php//php/auth.php';
+require_once 'db.php';
+require_once 'auth.php';
 
 $db  = getDB();
 $id  = (int)($_GET['id'] ?? 0);
 $currentUser = getCurrentUser();
 
-if (!$id) { header('Location: index.php'); exit; }
+if (!$id) { header('Location: home.php'); exit; }
 
 $isAdmin = ($currentUser && $currentUser['role'] === 'admin') ? 'admin' : 'reader';
 $stmt = $db->prepare("
@@ -20,16 +20,16 @@ $article = $stmt->fetch();
 
 if (!$article) {
     http_response_code(404);
-    require_once 'php/php/php//php/auth.php'; require_once 'php/php/php//php/auth.php';
+    require_once 'db.php'; require_once 'auth.php';
     ?><!DOCTYPE html><html lang="en"><head><title>Not Found — UrbanPulse</title>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="navfooter.css"><link rel="stylesheet" href="home.css">
-    </head><body><?php require_once __DIR__ . '/nav.php'; ?>
+    </head><body><?php require_once 'nav.php'; ?>
     <div style="text-align:center;padding:5rem 1rem;">
       <div style="font-size:4rem;margin-bottom:1rem;">📭</div>
       <h1 style="font-family:serif;margin-bottom:.5rem;">Article Not Found</h1>
       <p style="color:#666;margin-bottom:1.5rem;">This article doesn't exist or hasn't been approved yet.</p>
-      <a href="index.php" style="background:#c8102e;color:white;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
+      <a href="home.php" style="background:#c8102e;color:white;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
     </div></body></html><?php exit;
 }
 
@@ -67,7 +67,7 @@ $ARTICLE_ID = 'submission-' . $article['id'];
 </head>
 <body>
 
-<?php require_once __DIR__ . '/nav.php'; ?>
+<?php require_once 'nav.php'; ?>
 
 <?php if ($article['status'] !== 'approved' && $isAdmin === 'admin'): ?>
 <div style="background:#d97706;color:white;text-align:center;padding:.65rem;font-size:.85rem;font-weight:700;">
@@ -244,6 +244,7 @@ $ARTICLE_ID = 'submission-' . $article['id'];
   <script src="theme.js"></script>
 <script src="search.js"></script>
   <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
 <script>
     const UP_ARTICLE_ID = <?= json_encode($ARTICLE_ID) ?>;
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;

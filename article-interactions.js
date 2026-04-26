@@ -5,6 +5,91 @@
 (() => {
   'use strict';
 
+  // Use the ID from PHP, or fallback to filename
+  const ARTICLE_ID = (window.UP_ARTICLE_ID) ? window.UP_ARTICLE_ID : location.pathname.split('/').pop().replace('.php', '');
+  const state = { reactions: {}, comments: [], myReaction: null, myLikes: [], isLoggedIn: window.UP_IS_LOGGED_IN || false };
+
+  // ... (initials, timeAgo, esc, ensureDeleteModal functions remain the same) ...
+
+  function initCommentsForm() {
+    const form = document.getElementById('commentForm');
+    const textarea = document.getElementById('commentText');
+    if (!form || !textarea) return;
+
+    const submitBtn = form.querySelector('.comment-submit');
+    const charEl = document.getElementById('charCount');
+    const MAX = 500;
+
+    // FEATURE: Press Enter to submit, Shift+Enter for new line
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        form.dispatchEvent(new Event('submit')); // Trigger form submit
+      }
+    });
+
+    textarea.addEventListener('input', () => {
+      const left = MAX - textarea.value.length;
+      if (charEl) {
+        charEl.textContent = `${left} characters remaining`;
+        charEl.style.color = left < 0 ? 'red' : 'var(--color-text-muted)';
+      }
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const text = textarea.value.trim();
+      
+      if (!state.isLoggedIn) {
+        alert("You must be logged in to comment.");
+        return;
+      }
+
+      if (!text) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Posting...';
+
+      try {
+        const res = await fetch('api.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            action: 'add_comment', 
+            article_id: ARTICLE_ID, 
+            body: text 
+          })
+        });
+
+        const result = await res.json();
+        
+        if (result.success) {
+          textarea.value = '';
+          if (charEl) charEl.textContent = `${MAX} characters remaining`;
+          await fetchInteractions(); // Refresh the list
+        } else {
+          alert('Error: ' + (result.error || 'Unknown error occurred'));
+        }
+      } catch (error) {
+        console.error('Submission failed:', error);
+        alert('Could not connect to api.php. Check your console (F12).');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Post Comment';
+      }
+    });
+  }
+
+  // Ensure all functions are called
+  document.addEventListener('DOMContentLoaded', () => {
+    fetchInteractions();
+    initCommentsForm();
+    // ... initShare, etc.
+  });
+})();
+(() => {
+  'use strict';
+
   const ARTICLE_ID = (typeof UP_ARTICLE_ID !== 'undefined' && UP_ARTICLE_ID) ? UP_ARTICLE_ID : location.pathname.split('/').pop().replace('.php', '');
   const state = { reactions: {}, comments: [], myReaction: null, myLikes: [], isLoggedIn: false };
   let deleteModalInstance = null;

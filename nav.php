@@ -2,15 +2,15 @@
 // Safety: ensure $currentUser is always available
 if (!isset($currentUser)) {
     if (!function_exists('getCurrentUser')) {
-        require_once __DIR__ . '/php/php/php/php//php/auth.php';
-        require_once __DIR__ . '/php/php/php/php//php/auth.php';
+        require_once __DIR__ . '/db.php';
+        require_once __DIR__ . '/auth.php';
     }
     $currentUser = getCurrentUser();
 }
 ?>
 <?php
 // nav.php — Shared header include
-// Usage: require_once __DIR__ . '/nav.php'; at top of every page (after php/php/php//php/auth.php)
+// Usage: require_once 'nav.php'; at top of every page (after auth.php)
 // Requires $currentUser to already be set
 ?>
   <!-- BREAKING NEWS -->
@@ -40,7 +40,7 @@ if (!isset($currentUser)) {
           aria-label="Open menu" aria-controls="burgerMenu" aria-expanded="false">
           <span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>
-        <a href="index.php" class="header-logo">
+        <a href="home.php" class="header-logo">
           <h1>UrbanPulse</h1>
           <p class="header-logo-tagline">Feel the Ripple!</p>
         </a>
@@ -48,7 +48,7 @@ if (!isset($currentUser)) {
 
       <!-- CENTER: Nav links -->
       <nav class="main-nav">
-        <a href="index.php"          <?= (basename($_SERVER['PHP_SELF'])==='index.php')          ? 'class="active"':'' ?>>Home</a>
+        <a href="home.php"          <?= (basename($_SERVER['PHP_SELF'])==='home.php')          ? 'class="active"':'' ?>>Home</a>
         <a href="technology.php"    <?= (basename($_SERVER['PHP_SELF'])==='technology.php')    ? 'class="active"':'' ?>>Technology</a>
         <a href="sports.php"        <?= (basename($_SERVER['PHP_SELF'])==='sports.php')        ? 'class="active"':'' ?>>Sports</a>
         <a href="entertainment.php" <?= (basename($_SERVER['PHP_SELF'])==='entertainment.php') ? 'class="active"':'' ?>>Entertainment</a>
@@ -159,7 +159,7 @@ if (!isset($currentUser)) {
       <div class="burger-section">
         <div class="burger-section-title">Browse</div>
         <nav class="burger-links">
-          <a class="burger-link" data-nav href="index.php">Home</a>
+          <a class="burger-link" data-nav href="home.php">Home</a>
           <a class="burger-link" data-nav href="technology.php">Technology</a>
           <a class="burger-link" data-nav href="sports.php">Sports</a>
           <a class="burger-link" data-nav href="entertainment.php">Entertainment</a>
@@ -227,7 +227,7 @@ if (!isset($currentUser)) {
     </div>
   </div>
 
-  <script src="js/ui-interactions.js"></script>
+  <script src="ui-interactions.js"></script>
 
   <!-- TRANSCRIPT MODAL -->
   <div class="pulse-transcript-modal" id="pulseTranscriptModal" hidden aria-hidden="true">

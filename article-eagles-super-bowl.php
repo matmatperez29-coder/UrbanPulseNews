@@ -1,6 +1,6 @@
 <?php
-require_once '/php/db.php';
-require_once '/php/auth.php'; // This also starts the session and connects to the DB
+require_once 'db.php';
+require_once 'auth.php'; // This also starts the session and connects to the DB
 $currentUser = getCurrentUser(); // Returns user data if logged in, or null if not
 ?>
 <!DOCTYPE html>
@@ -203,6 +203,7 @@ $currentUser = getCurrentUser(); // Returns user data if logged in, or null if n
   <script src="theme.js"></script>
   <script src="search.js"></script>
   <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
 <script>
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
     const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;

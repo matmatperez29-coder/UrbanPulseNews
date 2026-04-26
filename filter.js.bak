@@ -17,7 +17,7 @@
   let toastTimer;
 
   const currentPage = (window.location.pathname.split('/').pop() || '').toLowerCase();
-  const unifiedGridPages = new Set(['index.php', 'entertainment.php', 'worldnews.php']);
+  const unifiedGridPages = new Set(['home.php', 'entertainment.php', 'worldnews.php']);
   const useUnifiedFilterGrid = unifiedGridPages.has(currentPage);
   const pageRoot = document.querySelector('main > .container, .page-wrapper, main') || document.body;
   const body = document.body;

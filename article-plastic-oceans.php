@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '/php/db.php';
-require_once '/php/auth.php';
+require_once 'db.php';
+require_once 'auth.php';
 $currentUser = getCurrentUser();
 ?>
 <!DOCTYPE html>
@@ -204,6 +204,7 @@ $currentUser = getCurrentUser();
   <script src="theme.js"></script>
   <script src="search.js"></script>
   <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
 <script>
     const UP_IS_LOGGED_IN = <?php echo $currentUser ? 'true' : 'false'; ?>;
     const UP_IS_ADMIN     = <?php echo ($currentUser && $currentUser['role'] === 'admin') ? 'true' : 'false'; ?>;

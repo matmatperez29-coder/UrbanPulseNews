@@ -258,6 +258,7 @@ $currentUser = getCurrentUser();
 <script src="search.js"></script>
 <script src="filter.js"></script>
 <script src="pulse-features.js"></script>
+<script src="article-interactions.js"></script>
 <script src="editorial-tools.js"></script>
 <script>
 

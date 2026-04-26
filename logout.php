@@ -1,12 +1,12 @@
 <?php
-require_once 'php/php/php/php//php/auth.php';
+require_once 'auth.php';
 
 $confirmed = isset($_GET['confirmed']) && $_GET['confirmed'] === '1';
 
 if ($confirmed) {
     session_unset();
     session_destroy();
-    header('Location: index.php');
+    header('Location: home.php');
     exit;
 }
 ?>
@@ -18,10 +18,10 @@ if ($confirmed) {
   <title>UrbanPulse | Confirm Logout</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/navfooter.css">
+  <link rel="stylesheet" href="navfooter.css">
 </head>
 <body style="margin:0;min-height:100vh;background:#f8f8f8;display:grid;place-items:center;">
-  <script src="js/ui-interactions.js"></script>
+  <script src="ui-interactions.js"></script>
   <script>
     window.addEventListener('load', function () {
       if (window.UrbanPulseUI && typeof window.UrbanPulseUI.openModal === 'function') {
@@ -32,10 +32,10 @@ if ($confirmed) {
           confirmLabel: 'Log out',
           cancelLabel: 'Go back',
           tone: 'danger',
-          onConfirm: function () { window.location.replace('php/logout.php?confirmed=1'); },
+          onConfirm: function () { window.location.replace('logout.php?confirmed=1'); },
           onCancel: function () {
             if (document.referrer) window.history.back();
-            else window.location.replace('index.php');
+            else window.location.replace('home.php');
           }
         });
       }

@@ -1,6 +1,6 @@
 <?php
-require_once 'php/php/php//php/auth.php';
-require_once 'php/php/php//php/auth.php';
+require_once 'db.php';
+require_once 'auth.php';
 
 // Must be logged in
 if (!isLoggedIn()) {
@@ -47,7 +47,7 @@ if (!in_array($user['role'], ['author', 'admin'])) {
         <div style="font-size:3rem;margin-bottom:1rem;">🚫</div>
         <h2 style="font-family:serif;margin-bottom:0.5rem;">Authors Only</h2>
         <p style="color:#666;margin-bottom:1.5rem;">Only authors can submit articles. Contact an admin to upgrade your account.</p>
-        <a href="index.php" style="background:#c8102e;color:white;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
+        <a href="home.php" style="background:#c8102e;color:white;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;">Go Home</a>
     </div></body></html>
     ');
 }
@@ -168,13 +168,13 @@ $statusColors = [
   <header class="header-main">
     <div class="header-container">
       <div class="header-left">
-        <a href="index.php" class="header-logo">
+        <a href="home.php" class="header-logo">
           <h1>UrbanPulse</h1>
           <p class="header-logo-tagline">Feel the Ripple!</p>
         </a>
       </div>
       <nav class="main-nav">
-        <a href="index.php">Home</a>
+        <a href="home.php">Home</a>
         <a href="technology.php">Technology</a>
         <a href="sports.php">Sports</a>
         <a href="entertainment.php">Entertainment</a>
