@@ -1,5 +1,5 @@
 <?php
-require_once 'php/auth.php';
+require_once 'php/php/auth.php';
 
 $confirmed = isset($_GET['confirmed']) && $_GET['confirmed'] === '1';
 
@@ -32,7 +32,7 @@ if ($confirmed) {
           confirmLabel: 'Log out',
           cancelLabel: 'Go back',
           tone: 'danger',
-          onConfirm: function () { window.location.replace('php/logout.php?confirmed=1'); },
+          onConfirm: function () { window.location.replace('php/php/logout.php?confirmed=1'); },
           onCancel: function () {
             if (document.referrer) window.history.back();
             else window.location.replace('index.php');

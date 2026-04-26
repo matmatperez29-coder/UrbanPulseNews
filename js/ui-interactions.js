@@ -97,12 +97,12 @@
   }
 
   function setupLogoutConfirmation() {
-    document.querySelectorAll('a[href="php/logout.php"], a[href$="/php/logout.php"]').forEach((link) => {
+    document.querySelectorAll('a[href="php/php/logout.php"], a[href$="/php/php/logout.php"]').forEach((link) => {
       if (link.dataset.upBound === '1') return;
       link.dataset.upBound = '1';
       link.addEventListener('click', (event) => {
         event.preventDefault();
-        const destination = link.getAttribute('href') || 'php/logout.php';
+        const destination = link.getAttribute('href') || 'php/php/logout.php';
         openModal({
           title: 'Log out of UrbanPulse?',
           text: 'You are about to sign out of your account on this device.',

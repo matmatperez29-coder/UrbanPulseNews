@@ -3,8 +3,8 @@ ini_set('display_errors', 0);
 error_reporting(E_ALL);
 header('Content-Type: application/json');
 
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once 'php/php/db.php';
+require_once 'php/php/auth.php';
 
 function article_url(string $articleId, ?int $commentId = null): string {
     if (preg_match('/^submission-(\d+)$/', $articleId, $m)) {

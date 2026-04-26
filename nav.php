@@ -2,15 +2,15 @@
 // Safety: ensure $currentUser is always available
 if (!isset($currentUser)) {
     if (!function_exists('getCurrentUser')) {
-        require_once __DIR__ . '/php/db.php';
-        require_once __DIR__ . '/php/auth.php';
+        require_once __DIR__ . '/php/php/db.php';
+        require_once __DIR__ . '/php/php/auth.php';
     }
     $currentUser = getCurrentUser();
 }
 ?>
 <?php
 // nav.php — Shared header include
-// Usage: require_once 'nav.php'; at top of every page (after php/auth.php)
+// Usage: require_once 'nav.php'; at top of every page (after php/php/auth.php)
 // Requires $currentUser to already be set
 ?>
   <!-- BREAKING NEWS -->
@@ -110,7 +110,7 @@ if (!isset($currentUser)) {
           <?php endif; ?>
 
           <span class="nav-divider"></span>
-          <a href="php/logout.php" class="nav-logout-btn">Log Out</a>
+          <a href="php/php/logout.php" class="nav-logout-btn">Log Out</a>
 
         <?php else: ?>
 
@@ -186,7 +186,7 @@ if (!isset($currentUser)) {
               <?= htmlspecialchars($currentUser['role']) ?>
             </span>
           </div>
-          <a class="burger-cta" href="php/logout.php" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);">LOG OUT</a>
+          <a class="burger-cta" href="php/php/logout.php" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);">LOG OUT</a>
         <?php else: ?>
           <div class="account-row">
             <div class="account-left">

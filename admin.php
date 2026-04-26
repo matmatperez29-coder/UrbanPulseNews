@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once 'php/php/db.php';
+require_once 'php/php/auth.php';
 
 // Must be logged in
 if (!isLoggedIn()) {
@@ -247,7 +247,7 @@ $catLabels = [
     <a href='index.php' class="admin-brand">Urban<span>Pulse</span></a>
     <a href="admin.php" class="admin-nav-link active">📋 Submissions</a>
     <a href='index.php' class="admin-nav-link">🏠 View Site</a>
-    <a href="php/submit-article.php" class="admin-nav-link">✍️ Submit Article</a>
+    <a href="php/php/submit-article.php" class="admin-nav-link">✍️ Submit Article</a>
   </div>
   <div class="admin-topnav-right">
     <div style="width:32px;height:32px;border-radius:50%;background:<?= htmlspecialchars($user['avatar_color']) ?>;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:white;">
@@ -255,7 +255,7 @@ $catLabels = [
     </div>
     <span class="admin-user"><?= htmlspecialchars($user['name']) ?></span>
     <span class="admin-badge-pill">Admin</span>
-    <a href="php/logout.php" style="color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;text-decoration:none;">Log Out</a>
+    <a href="php/php/logout.php" style="color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;text-decoration:none;">Log Out</a>
   </div>
 </nav>
 

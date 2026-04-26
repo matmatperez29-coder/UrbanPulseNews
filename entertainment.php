@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db.php';
-require_once 'php/auth.php';
+require_once 'php/php/db.php';
+require_once 'php/php/auth.php';
 $currentUser = getCurrentUser();
 ?>
 <?php $pageId = 'entertainment'; ?>
@@ -285,7 +285,7 @@ $currentUser = getCurrentUser();
 </div>
 </div>
 <div class="container">
-<?php require_once 'php/category-approved-section.php'; renderApprovedCategorySection(getDB(), 'entertainment', ['title' => 'Approved entertainment articles', 'eyebrow' => 'Editorial review']); ?>
+<?php require_once 'php/php/category-approved-section.php'; renderApprovedCategorySection(getDB(), 'entertainment', ['title' => 'Approved entertainment articles', 'eyebrow' => 'Editorial review']); ?>
 </div>
 </main>
 <footer class="footer">

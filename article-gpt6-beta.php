@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db.php';
-require_once 'php/auth.php'; // This also starts the session and connects to the DB
+require_once 'php/php/db.php';
+require_once 'php/php/auth.php'; // This also starts the session and connects to the DB
 $currentUser = getCurrentUser(); // Returns user data if logged in, or null if not
 ?>
 
